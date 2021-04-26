@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userData = { userName: username, password };
+    const userData = { username, password };
     const URL = process.env.REACT_APP_API_URL;
 
     try {
