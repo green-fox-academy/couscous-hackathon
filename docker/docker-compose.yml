@@ -4,7 +4,7 @@ services:
   # service neve, a logokban is így található meg
   hackathon-backend:
     # container neve
-    container_name: hanckathon-backend
+    container_name: hackathon-backend
     # melyik image-ből induljon ki (ez most java8)
     image: openjdk:8
     depends_on:

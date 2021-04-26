@@ -1,33 +1,24 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Register.css';
 import Tilt from 'react-tilt';
-import jwt from 'jsonwebtoken';
-import Cookies from 'universal-cookie';
 import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
-import {
-  loadUserToken,
-  loadUserTokenPayload,
-} from '../../actions/loginActions';
 
-const Login = () => {
+const Register = () => {
   const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [inputStatus, setInputStatus] = useState('login-input-OK');
+  const [inputStatus, setInputStatus] = useState('register-input-OK');
   const [error, setError] = useState(null);
-  const cookie = new Cookies();
   const history = useHistory();
-
-  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userData = { username, password };
+    const userData = { username, email, password };
     const URL = process.env.REACT_APP_API_URL;
 
     try {
-      const response = await fetch(`${URL}/login`, {
+      const response = await fetch(`${URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData),
@@ -36,19 +27,12 @@ const Login = () => {
       if (response.status !== 200) {
         throw Error(responseBody.error);
       }
-      const decodedJWTToken = jwt.decode(responseBody.token, {
-        complete: true,
-      });
-      dispatch(loadUserToken(responseBody.token));
-      dispatch(loadUserTokenPayload(decodedJWTToken.payload));
-      cookie.set('accessToken', responseBody.token, {
-        path: '/',
-      });
-      history.push('/main');
+
+      history.push('/login');
     } catch (error) {
       console.log(error.message);
       setError(error.message);
-      setInputStatus('login-input-ERROR');
+      setInputStatus('register-input-ERROR');
     }
   };
 
@@ -56,8 +40,8 @@ const Login = () => {
     <div className="container">
       <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
         <div className="box">
-          <h1 className="name">Login</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
+          <h1 className="name">Register</h1>
+          <form className="register-form" onSubmit={handleSubmit}>
             <input
               className={inputStatus}
               type="text"
@@ -67,7 +51,19 @@ const Login = () => {
               placeholder="username"
               onChange={(e) => {
                 setUserName(e.target.value);
-                setInputStatus('login-input-OK');
+                setInputStatus('register-input-OK');
+                setError(null);
+              }}
+            />
+            <input
+              className={inputStatus}
+              type="email"
+              required
+              value={email}
+              placeholder="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setInputStatus('register-input-OK');
                 setError(null);
               }}
             />
@@ -80,14 +76,14 @@ const Login = () => {
               placeholder="password"
               onChange={(e) => {
                 setPassword(e.target.value);
-                setInputStatus('login-input-OK');
+                setInputStatus('register-input-OK');
                 setError(null);
               }}
             />
             <div className="errorBox">
               {error && <div className="input-error-message">{error}</div>}
             </div>
-            <button className="button">Login</button>
+            <button className="button">Sign Up</button>
           </form>
         </div>
       </Tilt>
@@ -95,4 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
