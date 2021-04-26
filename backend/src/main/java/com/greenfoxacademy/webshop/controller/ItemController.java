@@ -15,7 +15,7 @@ public class ItemController {
     @GetMapping("/item/{id}")
     public ResponseEntity<ItemResponseDTO> getItemById(@PathVariable Long id) {
         return ResponseEntity.ok(new ItemResponseDTO(
-                1L, "TestItem", 50, "Description of TestItem", "https://i.pravatar.cc", "electonic"));
+                1L, "TestItem", 50, "Description of TestItem", Arrays.asList("https://i.pravatar.cc"), "electonic"));
     }
 
     @CrossOrigin
@@ -23,11 +23,11 @@ public class ItemController {
     public ResponseEntity<List<ItemResponseDTO>> getItemList() {
         return ResponseEntity.ok(Arrays.asList(
                 new ItemResponseDTO(
-                        1L, "TestItem", 50, "Description of TestItem", "https://i.pravatar.cc", "electonic"),
+                        1L, "TestItem", 50, "Description of TestItem", Arrays.asList("https://i.pravatar.cc"), "electonic"),
                 new ItemResponseDTO(
-                        2L, "TestItem2", 80, "Description of second TestItem", "https://i.pravatar.cc", "electonic"),
+                        2L, "TestItem2", 80, "Description of second TestItem", Arrays.asList("https://i.pravatar.cc"), "electonic"),
                 new ItemResponseDTO(
-                        3L, "TestItem3", 70, "Description of third TestItem", "https://i.pravatar.cc", "hygiene")));
+                        3L, "TestItem3", 70, "Description of third TestItem", Arrays.asList("https://i.pravatar.cc"), "hygiene")));
     }
 
     @CrossOrigin

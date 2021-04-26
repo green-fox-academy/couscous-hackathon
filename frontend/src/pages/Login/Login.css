@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+  transform-style: preserve-3d;
+}
+
+.container .box {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 40px;
+  background: #232323;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+}
+
+.container .box .name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: translate(0, 0, 75px);
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+}
+.container .box:hover .name {
+  top: 40px;
+  opacity: 1;
+}
+.container .box .button {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, 0, 75px);
+  color: #fff;
+  background: #333;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+}
+.container .box:hover .button {
+  bottom: 40px;
+  opacity: 1;
+  background-color: rgb(92, 81, 81);
+}
+[class*='login-input'] {
+  background: transparent;
+  outline: none;
+  border: 0;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #fff;
+}
+.login-input-OK {
+  padding-top: 5em;
+  border-bottom: 2px solid #293b1b;
+  caret-color: #43662a;
+}
+.login-input-ERROR {
+  padding-top: 5em;
+  border-bottom: 2px solid #db4437;
+  caret-color: #db4437;
+}
+.errorBox {
+  padding-top: 1rem;
+  height: 24px;
+}
+.input-error-message {
+  color: #db4437;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .box .product {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 300px;
+  transition: 0.5s;
+  z-index: 11;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  transform: translate3d(-50%, -50%, 0px) rotate(-15deg);
+}
+.container .box:hover .product {
+  transform: translate3d(-50%, -50%, 100px) rotate(-15deg);
+}

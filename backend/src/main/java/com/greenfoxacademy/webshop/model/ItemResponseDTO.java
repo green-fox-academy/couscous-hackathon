@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,6 +16,6 @@ public class ItemResponseDTO {
     private String title;
     private Integer price;
     private String description;
-    private String image;
+    private List<String> image;
     private String category;
 }
