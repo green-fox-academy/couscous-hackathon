@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { React, useEffect, useState } from 'react';
+=======
+import React, {useEffect, useState } from 'react';
+>>>>>>> 2c8e24a (parent a110fd8e6841b7d96639433f98d1eb502db2da5b)
 import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
@@ -9,12 +13,17 @@ import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Panel } = Collapse;
-const backendUrl = process.env.REACT_APP_API_URL;
+//const backendUrl = process.env.REACT_APP_API_URL;
 //const url = `${backendUrl}/item`;
 //const url2 = `https://fakestoreapi.com/products`;
 
 const Shop = () => {
+<<<<<<< HEAD
   const reducerItemState = useSelector((state) => state.itemState);
+=======
+
+  const reducerItemState = useSelector(state => state.itemState);
+>>>>>>> 2c8e24a (parent a110fd8e6841b7d96639433f98d1eb502db2da5b)
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
@@ -40,12 +49,21 @@ const Shop = () => {
     } catch (error) {
       console.log(error.message);
       setError(error.message);
+<<<<<<< HEAD
     }
   }, [page, pageSize, dispatch]);
 
   function callback(key) {
     console.log(key);
   }
+=======
+  }
+  },[page, pageSize, dispatch])
+
+  function callback(key) {
+  console.log(key);
+}
+>>>>>>> 2c8e24a (parent a110fd8e6841b7d96639433f98d1eb502db2da5b)
 
   return (
     <div className="store-wrapper">
