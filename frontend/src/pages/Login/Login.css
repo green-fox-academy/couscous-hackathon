@@ -4,19 +4,20 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
+} */
 .container {
+  top: 200px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 1200px;
+  /* width: 1200px; */
   transform-style: preserve-3d;
 }
 
