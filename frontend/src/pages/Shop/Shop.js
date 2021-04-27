@@ -3,11 +3,12 @@ import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
 import Item from '../../pages/Item/Item';
-import { Pagination } from 'antd';
-import 'antd/dist/antd.css';
+//import { Pagination } from 'antd';
+//import 'antd/dist/antd.css';
 
-//const backendUrl = process.env.REACT_APP_BACKENDURL;
-//const url = `${backendUrl}/item`;
+const backendUrl = process.env.REACT_APP_BACKENDURL;
+const url = `${backendUrl}/item`;
+//const url2 = `https://fakestoreapi.com/products?limit=${pageSize}`;
 
 const Shop = () => {
   
@@ -15,18 +16,18 @@ const Shop = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
-  const [page, setPage] = useState(1);
-  const onChange =(page) =>{
-    setPage(page);
-  }
-  const [pageSize, setPageSize] = useState(6);
-  const onShowSizeChange = (current, size) => {
-    setPageSize(size);
-  }
+  //const [page, setPage] = useState(1);
+  //const onChange =(page) =>{
+  //  setPage(page);
+  //}
+  //const [pageSize, setPageSize] = useState(6);
+  //const onShowSizeChange = (current, size) => {
+  //  setPageSize(size);
+  //}
 
   useEffect(() => {
     try {
-      const response = fetch(`https://fakestoreapi.com/products?limit=${pageSize}`)
+      const response = fetch(url)
       .then(response => response.json())
       .then(response => dispatch(saveAllItems(response)))
       if (response.status !== 200) {
@@ -36,7 +37,7 @@ const Shop = () => {
       console.log(error.message);
       setError(error.message);
   }
-  },[page, pageSize, dispatch])
+  },[])//page, pageSize
   
     
   console.log(reducerItemState.items);
@@ -52,7 +53,7 @@ const Shop = () => {
             </div>
           ))}
       </div>
-              <Pagination total={ 70 } pageSizeOptions={ [6,12,24,48] } onShowSizeChange={ onShowSizeChange } onChange={ onChange } />;
+      {/*<Pagination total={ 70 } pageSizeOptions={ [6,12,24,48] } onShowSizeChange={ onShowSizeChange } onChange={ onChange } />;*/ }
     </div>
   );
 };
