@@ -1,4 +1,4 @@
-import {React, useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
@@ -14,8 +14,7 @@ const backendUrl = process.env.REACT_APP_API_URL;
 //const url2 = `https://fakestoreapi.com/products`;
 
 const Shop = () => {
-  
-  const reducerItemState = useSelector(state => state.itemState);
+  const reducerItemState = useSelector((state) => state.itemState);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
@@ -30,15 +29,22 @@ const Shop = () => {
 
   useEffect(() => {
     try {
+<<<<<<< HEAD
       const response = fetch(`http://localhost:8080/item?page=${page-1}&pageSize=${pageSize}`)
       .then(response => response.json())
       .then(response => dispatch(saveAllItems(response)))
+=======
+      const response = fetch('http://localhost:8080/item?page=1&pageSize=6')
+        .then((response) => response.json())
+        .then((response) => dispatch(saveAllItems(response)));
+>>>>>>> 96b9276 (cart page create)
       if (response.status !== 200) {
         throw Error(response.error);
       }
     } catch (error) {
       console.log(error.message);
       setError(error.message);
+<<<<<<< HEAD
   }
   },[page, pageSize, dispatch])
   
@@ -89,6 +95,25 @@ const Shop = () => {
         </div>
         </div>
       </div>
+=======
+    }
+  }, [dispatch]); //page, pageSize
+
+  console.log(reducerItemState.items);
+  return (
+    <div className="store-container">
+      <h2>Welcome! Please consider helping our work with a small donation</h2>
+      <div className="store">
+        {error && <div>{error}</div>}
+        {reducerItemState.items &&
+          reducerItemState.items.map((item) => (
+            <div className="items" key={item.id}>
+              <Item item={item} />
+            </div>
+          ))}
+      </div>
+      {/*<Pagination total={ 70 } pageSizeOptions={ [6,12,24,48] } onShowSizeChange={ onShowSizeChange } onChange={ onChange } />;*/}
+>>>>>>> 96b9276 (cart page create)
     </div>
   );
 };
