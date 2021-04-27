@@ -15,10 +15,13 @@ public class CustomExceptionHandler {
 
     private static final Logger logger = Logger.getLogger(CustomExceptionHandler.class);
 
-    @ExceptionHandler(value = UserException.class)
-    public ResponseEntity<ErrorDTO> userExceptionHandler(
-            UserException ex) {
-        logger.warn("UserException: " + ex.getMessage());
+    @ExceptionHandler(value = {UserException.class, IllegalArgumentException.class})
+    public ResponseEntity<ErrorDTO> badRequestExceptionHandler(Exception ex) {
+        if (ex instanceof UserException) {
+            logger.warn("UserException: " + ex.getMessage());
+        } else if (ex instanceof IllegalArgumentException) {
+            logger.warn("IllegalArgumentException: " + ex.getMessage());
+        }
         return ResponseEntity.status(400)
                 .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));
     }
