@@ -4,20 +4,19 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* body {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-} */
+}
 .container {
-  top: 200px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* width: 1200px; */
+  width: 1200px;
   transform-style: preserve-3d;
 }
 
@@ -26,7 +25,7 @@
   width: 300px;
   height: 400px;
   margin: 40px;
-  background: #232323;
+  background: #302828;
   border-radius: 20px;
   transform-style: preserve-3d;
 }
@@ -43,9 +42,10 @@
   transition: 0.5s;
   opacity: 0;
   z-index: 10;
+  padding-bottom: 0.5rem;
 }
 .container .box:hover .name {
-  top: 40px;
+  top: 20px;
   opacity: 1;
 }
 .container .box .button {
@@ -64,11 +64,11 @@
   z-index: 10;
 }
 .container .box:hover .button {
-  bottom: 40px;
+  bottom: 20px;
   opacity: 1;
   background-color: rgb(92, 81, 81);
 }
-[class*='login-input'] {
+[class*='register-input'] {
   background: transparent;
   outline: none;
   border: 0;
@@ -76,18 +76,18 @@
   font-style: italic;
   color: #fff;
 }
-.login-input-OK {
-  padding-top: 5em;
+.register-input-OK {
+  padding-top: 3.4em;
   border-bottom: 2px solid #293b1b;
   caret-color: #43662a;
 }
-.login-input-ERROR {
-  padding-top: 5em;
+.register-input-ERROR {
+  padding-top: 3.4em;
   border-bottom: 2px solid #db4437;
   caret-color: #db4437;
 }
 .errorBox {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   height: 24px;
 }
 .input-error-message {

@@ -1,0 +1,32 @@
+.header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(48, 40, 40);
+}
+.header a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-style: italic;
+  font-variant: small-caps;
+  font-size: 1.3rem;
+}
+.headerLinks {
+  margin-left: auto;
+  font-weight: bold;
+}
+.header h1 {
+  color: white;
+  font-style: italic;
+  font-variant: small-caps;
+  font-size: 1.7rem;
+  -webkit-box-reflect: below -0.4em linear-gradient(transparent, #0004);
+}
+.header h2 {
+  margin-left: 20px;
+  text-decoration: underline;
+  font-style: italic;
+  font-variant: small-caps;
+  font-size: 1.7rem;
+}
