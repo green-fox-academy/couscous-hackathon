@@ -1,7 +1,9 @@
 package com.greenfoxacademy.webshop.service;
 
+import com.greenfoxacademy.webshop.exception.CustomExceptionHandler;
 import com.greenfoxacademy.webshop.model.Cart;
 import com.greenfoxacademy.webshop.repository.CartRepository;
+import org.apache.log4j.Logger;
 import org.graalvm.compiler.lir.alloc.lsra.LinearScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,8 @@ public class SchedulingService {
 
     private CartRepository cartRepository;
 
+    private static final Logger logger = Logger.getLogger(CustomExceptionHandler.class);
+
     @Autowired
     public SchedulingService(CartRepository cartRepository) {
         this.cartRepository = cartRepository;
@@ -32,6 +36,7 @@ public class SchedulingService {
                 .collect(Collectors.toList());
 
         for (Cart cart : oldCartList) {
+            logger.info("Deleted cart " + cart.getId());
             cartRepository.delete(cart);
         }
     }
