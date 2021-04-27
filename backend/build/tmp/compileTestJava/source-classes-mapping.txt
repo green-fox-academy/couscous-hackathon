@@ -1,2 +1,0 @@
-com/greenfoxacademy/webshop/WebshopApplicationTests.java
- com.greenfoxacademy.webshop.WebshopApplicationTests
