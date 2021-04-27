@@ -1,18 +1,18 @@
 INSERT INTO item (description, price, title, category)
-VALUES ('The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.', 32, 'InfernoFox', 4 ),
-       ('Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.', 17, 'FunkyFox', 1),
-       ('Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz.', 21, 'AmorFox', 2),
-       ('Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack.', 38, 'SmirkyFox', 1),
-       ('Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim.', 23, 'SkeptiFox', 1),
-       ('Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex.', 28, 'DullFox', 4),
-       ('Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!', 33, 'AngelFox', 3),
-       ('"Now fax quiz Jack!" my brave ghost pled.Flummoxed by job, kvetching W. zaps Iraq.', 19, 'PartyFox', 1),
-       ('Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls.', 22, 'VaccinatedFox', 4),
-       ('Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox.', 31, 'RetardFox', 4),
-       ('The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump.', 25, 'DrunkFox', 1),
-       ('Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog.', 26, 'SantaFox', 3),
-       ('Watch "Jeopardy!", Alex Trebek''s fun TV quiz game.', 16, 'BatFox', 3),
-       ('Woven silk pyjamas exchanged for blue quartz. Brawny gods just', 20, 'CatFox', 2);
+VALUES ('The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.', 32, 'InfernoFox', 3 ),
+       ('Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.', 17, 'FunkyFox', 0),
+       ('Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz.', 21, 'AmorFox', 1),
+       ('Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack.', 38, 'SmirkyFox', 0),
+       ('Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim.', 23, 'SkeptiFox', 0),
+       ('Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex.', 28, 'DullFox', 3),
+       ('Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!', 33, 'AngelFox', 2),
+       ('"Now fax quiz Jack!" my brave ghost pled.Flummoxed by job, kvetching W. zaps Iraq.', 19, 'PartyFox', 0),
+       ('Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls.', 22, 'VaccinatedFox', 3),
+       ('Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox.', 31, 'RetardFox', 3),
+       ('The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump.', 25, 'DrunkFox', 0),
+       ('Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog.', 26, 'SantaFox', 2),
+       ('Watch "Jeopardy!", Alex Trebek''s fun TV quiz game.', 16, 'BatFox', 2),
+       ('Woven silk pyjamas exchanged for blue quartz. Brawny gods just', 20, 'CatFox', 1);
 
 
 INSERT INTO image (url, item_id)

@@ -1,9 +1,9 @@
-com/greenfoxacademy/webshop/security/SecurityConfigurer.java
- com.greenfoxacademy.webshop.security.SecurityConfigurer
+com/greenfoxacademy/webshop/model/Image.java
+ com.greenfoxacademy.webshop.model.Image
 com/greenfoxacademy/webshop/security/CustomUserDetails.java
  com.greenfoxacademy.webshop.security.CustomUserDetails
-com/greenfoxacademy/webshop/model/ItemResponseDTO.java
- com.greenfoxacademy.webshop.model.ItemResponseDTO
+com/greenfoxacademy/webshop/repository/PurchaseRepository.java
+ com.greenfoxacademy.webshop.repository.PurchaseRepository
 com/greenfoxacademy/webshop/security/JwtUtil.java
  com.greenfoxacademy.webshop.security.JwtUtil
 com/greenfoxacademy/webshop/exception/ParamAlreadyExistException.java
@@ -34,8 +34,8 @@ com/greenfoxacademy/webshop/repository/UserRepository.java
  com.greenfoxacademy.webshop.repository.UserRepository
 com/greenfoxacademy/webshop/model/Purchase.java
  com.greenfoxacademy.webshop.model.Purchase
-com/greenfoxacademy/webshop/controller/ItemController.java
- com.greenfoxacademy.webshop.controller.ItemController
+com/greenfoxacademy/webshop/model/PurchaseAmount.java
+ com.greenfoxacademy.webshop.model.PurchaseAmount
 com/greenfoxacademy/webshop/WebshopApplication.java
  com.greenfoxacademy.webshop.WebshopApplication
 com/greenfoxacademy/webshop/security/AuthenticationExceptionHandler.java
@@ -50,7 +50,19 @@ com/greenfoxacademy/webshop/model/CartAmount.java
  com.greenfoxacademy.webshop.model.CartAmount
 com/greenfoxacademy/webshop/model/Item.java
  com.greenfoxacademy.webshop.model.Item
-com/greenfoxacademy/webshop/model/PurchaseAmount.java
- com.greenfoxacademy.webshop.model.PurchaseAmount
-com/greenfoxacademy/webshop/model/Image.java
- com.greenfoxacademy.webshop.model.Image
+com/greenfoxacademy/webshop/security/SecurityConfigurer.java
+ com.greenfoxacademy.webshop.security.SecurityConfigurer
+com/greenfoxacademy/webshop/repository/PurchaseAmount.java
+ com.greenfoxacademy.webshop.repository.PurchaseAmount
+com/greenfoxacademy/webshop/repository/CartRepository.java
+ com.greenfoxacademy.webshop.repository.CartRepository
+com/greenfoxacademy/webshop/repository/CartAmountRepository.java
+ com.greenfoxacademy.webshop.repository.CartAmountRepository
+com/greenfoxacademy/webshop/model/ItemResponseDTO.java
+ com.greenfoxacademy.webshop.model.ItemResponseDTO
+com/greenfoxacademy/webshop/service/ItemService.java
+ com.greenfoxacademy.webshop.service.ItemService
+com/greenfoxacademy/webshop/controller/ItemController.java
+ com.greenfoxacademy.webshop.controller.ItemController
+com/greenfoxacademy/webshop/repository/ItemRepository.java
+ com.greenfoxacademy.webshop.repository.ItemRepository
