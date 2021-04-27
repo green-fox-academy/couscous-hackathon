@@ -36,7 +36,7 @@ const Header = () => {
               alt="paw icon"
               height="60px"
             /></Link>
-        <Link to="/main/cart"><img
+        <Link to="/cart"><img
               className="pawicon"
               src={cart2}
               alt="paw icon"

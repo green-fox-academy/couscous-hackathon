@@ -2,15 +2,15 @@ import {React, useEffect, useState } from 'react';
 import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
-import Item from '../../pages/Item/Item';
+import ItemCard from '../../components/ItemCard/ItemCard';
 import { Collapse } from 'antd';
 
 //import { Pagination } from 'antd';
 //import 'antd/dist/antd.css';
 
 const { Panel } = Collapse;
-const backendUrl = process.env.REACT_APP_BACKENDURL;
-//const url = `${backendUrl}/item`;
+const backendUrl = process.env.REACT_APP_API_URL;
+const url = `${backendUrl}/item`;
 const url2 = `https://fakestoreapi.com/products`;
 
 const Shop = () => {
@@ -30,7 +30,7 @@ const Shop = () => {
 
   useEffect(() => {
     try {
-      const response = fetch(url2)
+      const response = fetch('http://localhost:8080/item?page=1&pageSize=6')
       .then(response => response.json())
       .then(response => dispatch(saveAllItems(response)))
       if (response.status !== 200) {
@@ -45,27 +45,31 @@ const Shop = () => {
   function callback(key) {
   console.log(key);
 }
-
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
   
   return (
     <div className="store-wrapper">
       <div className="searchbar">
         <Collapse defaultActiveKey={['1']} onChange={callback}>
-          <Panel header="Filter by name" key="1">
-            <p>{text}</p>
+          <Panel header=" Filter by name" key="1">
+            <form className="form">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autoComplete="off"></input>
+            </form>
+      </Panel>
+          <Panel header=" Filter by price" key="2">
+            <form className="form">
+              <label for="price">Price</label>
+              <input type="number" id="price" name="price" autoComplete="off"></input>
+            </form>
           </Panel>
-          <Panel header="Filter by price" key="2">
-            <p>{text}</p>
-          </Panel>
-          <Panel header="Filter by description" key="3">
-            <p>{text}</p>
+          <Panel header=" Filter by description" key="3">
+            <form className="form">
+              <label for="category">Category</label>
+              <input type="text" id="category" name="category" autoComplete="off"></input>
+            </form>
           </Panel>
         </Collapse>
+        <button>Search</button>
       </div>
       <div className="store-container">
         <div className="welcome">
@@ -77,7 +81,7 @@ const text = `
           {reducerItemState.items &&
             reducerItemState.items.map(item => (
               <div className="items" key={item.id}>
-                <Item item={ item } />
+                <ItemCard item={ item } />
               </div>
             ))}
         </div>
