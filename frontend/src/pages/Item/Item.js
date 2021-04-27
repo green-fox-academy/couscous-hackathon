@@ -10,9 +10,9 @@ function Item(props) {
         <img src={item.image} alt="itempicture" width="100%" />
       </div>
       <div className="item-title">{item.title}</div>
-      <div className="item-price">{item.price} Huf</div>
+      <div className="item-price">$ {item.price}</div>
       <div className="item-details">
-        <Link to={`/item/${item.id}`}>Show details</Link>
+        <Link to={`/item/${item.id}`}>See details</Link>
       </div>
     </div>
   );

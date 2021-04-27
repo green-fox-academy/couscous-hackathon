@@ -2,13 +2,37 @@
 *{
   margin:auto;
   font-family: 'Architects Daughter', cursive;
-
+  font-weight: bold;
 }
-
-.store-container h2{
-  margin: 30px auto 10px 35px;
-  
-  font-size: 20px;
+.store-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  position: relative;
+}
+.store-wrapper .searchbar{
+  grid-column:1/2;
+  background-color: rgb(207,94,59);
+  height: 100vh;
+  width: 37vh;
+  position:fixed;
+  top: 0;
+  padding: 30vh 2vh;
+}
+.store-wrapper .searchbar .header{
+  font-size: 25px;
+}
+.store-container{
+  grid-column: 2/3;
+  padding: 10px;
+  margin: 10px;
+  width: 70vh;
+}
+.store-container .welcome{
+  margin-left: 20px;
+  width: 170vh;;
+}
+.store-container .welcome h2{
+  font-size: 17px;
 }
 .store  {
   width: 80%;
@@ -27,16 +51,17 @@
   margin: 20px;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.295);
   font-size: 17px;
-  background-color: rgba(55, 76, 88, 0.384);
+  background-color: rgba(55, 76, 88, 0.226);
   display: grid;
   grid-template-columns: 1fr, 1fr;
   grid-auto-rows: minmax(50px, auto);
   justify-items: baseline;
   align-items: center;
+  border-radius: 14px;
 }
 .store .item-info:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-  background-color: rgb(72, 107, 146);
+  background-color: rgb(207, 94, 59);
 }
 
 .store .item-image{
@@ -51,12 +76,15 @@
   grid-row:1/2;
   padding: 20px;
   margin: 0;
+  min-width: 70px;
 }
 .store .item-details{
   grid-column:2/3;
   grid-row:2/3;
   padding: 20px;
-  color: rgb(34,34,155);
+}
+.store a{
+  color: black
 }
 .store .item-title{
   grid-column:1/3;
