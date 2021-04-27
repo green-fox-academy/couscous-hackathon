@@ -1,42 +1,68 @@
-com/greenfoxacademy/webshop/service/UserService.java
- com.greenfoxacademy.webshop.service.UserService
-com/greenfoxacademy/webshop/security/SecurityConfigurer.java
- com.greenfoxacademy.webshop.security.SecurityConfigurer
+com/greenfoxacademy/webshop/model/Image.java
+ com.greenfoxacademy.webshop.model.Image
 com/greenfoxacademy/webshop/security/CustomUserDetails.java
  com.greenfoxacademy.webshop.security.CustomUserDetails
-com/greenfoxacademy/webshop/model/User.java
- com.greenfoxacademy.webshop.model.User
-com/greenfoxacademy/webshop/controller/UserController.java
- com.greenfoxacademy.webshop.controller.UserController
+com/greenfoxacademy/webshop/repository/PurchaseRepository.java
+ com.greenfoxacademy.webshop.repository.PurchaseRepository
 com/greenfoxacademy/webshop/security/JwtUtil.java
  com.greenfoxacademy.webshop.security.JwtUtil
-com/greenfoxacademy/webshop/repository/UserRepository.java
- com.greenfoxacademy.webshop.repository.UserRepository
-com/greenfoxacademy/webshop/controller/ItemController.java
- com.greenfoxacademy.webshop.controller.ItemController
-com/greenfoxacademy/webshop/WebshopApplication.java
- com.greenfoxacademy.webshop.WebshopApplication
-com/greenfoxacademy/webshop/exception/UserException.java
- com.greenfoxacademy.webshop.exception.UserException
-com/greenfoxacademy/webshop/security/AuthenticationExceptionHandler.java
- com.greenfoxacademy.webshop.security.AuthenticationExceptionHandler
-com/greenfoxacademy/webshop/exception/InvalidParametersException.java
- com.greenfoxacademy.webshop.exception.InvalidParametersException
-com/greenfoxacademy/webshop/model/UserResponseDTO.java
- com.greenfoxacademy.webshop.model.UserResponseDTO
-com/greenfoxacademy/webshop/model/ErrorDTO.java
- com.greenfoxacademy.webshop.model.ErrorDTO
 com/greenfoxacademy/webshop/exception/ParamAlreadyExistException.java
  com.greenfoxacademy.webshop.exception.ParamAlreadyExistException
-com/greenfoxacademy/webshop/security/CustomUserDetailsService.java
- com.greenfoxacademy.webshop.security.CustomUserDetailsService
-com/greenfoxacademy/webshop/model/ItemResponseDTO.java
- com.greenfoxacademy.webshop.model.ItemResponseDTO
+com/greenfoxacademy/webshop/model/ErrorDTO.java
+ com.greenfoxacademy.webshop.model.ErrorDTO
+com/greenfoxacademy/webshop/exception/UserException.java
+ com.greenfoxacademy.webshop.exception.UserException
+com/greenfoxacademy/webshop/exception/InvalidParametersException.java
+ com.greenfoxacademy.webshop.exception.InvalidParametersException
 com/greenfoxacademy/webshop/exception/CustomExceptionHandler.java
  com.greenfoxacademy.webshop.exception.CustomExceptionHandler
 com/greenfoxacademy/webshop/exception/MissingParametersException.java
  com.greenfoxacademy.webshop.exception.MissingParametersException
+com/greenfoxacademy/webshop/model/Cart.java
+ com.greenfoxacademy.webshop.model.Cart
 com/greenfoxacademy/webshop/model/CartItemRequestDTO.java
  com.greenfoxacademy.webshop.model.CartItemRequestDTO
 com/greenfoxacademy/webshop/security/JwtRequestFilter.java
  com.greenfoxacademy.webshop.security.JwtRequestFilter
+com/greenfoxacademy/webshop/service/UserService.java
+ com.greenfoxacademy.webshop.service.UserService
+com/greenfoxacademy/webshop/model/User.java
+ com.greenfoxacademy.webshop.model.User
+com/greenfoxacademy/webshop/controller/UserController.java
+ com.greenfoxacademy.webshop.controller.UserController
+com/greenfoxacademy/webshop/repository/UserRepository.java
+ com.greenfoxacademy.webshop.repository.UserRepository
+com/greenfoxacademy/webshop/model/Purchase.java
+ com.greenfoxacademy.webshop.model.Purchase
+com/greenfoxacademy/webshop/model/PurchaseAmount.java
+ com.greenfoxacademy.webshop.model.PurchaseAmount
+com/greenfoxacademy/webshop/WebshopApplication.java
+ com.greenfoxacademy.webshop.WebshopApplication
+com/greenfoxacademy/webshop/security/AuthenticationExceptionHandler.java
+ com.greenfoxacademy.webshop.security.AuthenticationExceptionHandler
+com/greenfoxacademy/webshop/model/UserResponseDTO.java
+ com.greenfoxacademy.webshop.model.UserResponseDTO
+com/greenfoxacademy/webshop/security/CustomUserDetailsService.java
+ com.greenfoxacademy.webshop.security.CustomUserDetailsService
+com/greenfoxacademy/webshop/model/Category.java
+ com.greenfoxacademy.webshop.model.Category
+com/greenfoxacademy/webshop/model/CartAmount.java
+ com.greenfoxacademy.webshop.model.CartAmount
+com/greenfoxacademy/webshop/model/Item.java
+ com.greenfoxacademy.webshop.model.Item
+com/greenfoxacademy/webshop/security/SecurityConfigurer.java
+ com.greenfoxacademy.webshop.security.SecurityConfigurer
+com/greenfoxacademy/webshop/repository/PurchaseAmount.java
+ com.greenfoxacademy.webshop.repository.PurchaseAmount
+com/greenfoxacademy/webshop/repository/CartRepository.java
+ com.greenfoxacademy.webshop.repository.CartRepository
+com/greenfoxacademy/webshop/repository/CartAmountRepository.java
+ com.greenfoxacademy.webshop.repository.CartAmountRepository
+com/greenfoxacademy/webshop/model/ItemResponseDTO.java
+ com.greenfoxacademy.webshop.model.ItemResponseDTO
+com/greenfoxacademy/webshop/service/ItemService.java
+ com.greenfoxacademy.webshop.service.ItemService
+com/greenfoxacademy/webshop/controller/ItemController.java
+ com.greenfoxacademy.webshop.controller.ItemController
+com/greenfoxacademy/webshop/repository/ItemRepository.java
+ com.greenfoxacademy.webshop.repository.ItemRepository
