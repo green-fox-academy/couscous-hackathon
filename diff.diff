@@ -1,0 +1,459 @@
+diff --git a/backend/.gradle/6.8.3/executionHistory/executionHistory.bin b/backend/.gradle/6.8.3/executionHistory/executionHistory.bin
+deleted file mode 100644
+index 4c5ed89..0000000
+Binary files a/backend/.gradle/6.8.3/executionHistory/executionHistory.bin and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/executionHistory/executionHistory.lock b/backend/.gradle/6.8.3/executionHistory/executionHistory.lock
+deleted file mode 100644
+index 31a1bae..0000000
+Binary files a/backend/.gradle/6.8.3/executionHistory/executionHistory.lock and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/fileHashes/fileHashes.bin b/backend/.gradle/6.8.3/fileHashes/fileHashes.bin
+deleted file mode 100644
+index 27446d4..0000000
+Binary files a/backend/.gradle/6.8.3/fileHashes/fileHashes.bin and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/fileHashes/fileHashes.lock b/backend/.gradle/6.8.3/fileHashes/fileHashes.lock
+deleted file mode 100644
+index 6227a00..0000000
+Binary files a/backend/.gradle/6.8.3/fileHashes/fileHashes.lock and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/fileHashes/resourceHashesCache.bin b/backend/.gradle/6.8.3/fileHashes/resourceHashesCache.bin
+deleted file mode 100644
+index 5f2840b..0000000
+Binary files a/backend/.gradle/6.8.3/fileHashes/resourceHashesCache.bin and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/javaCompile/classAnalysis.bin b/backend/.gradle/6.8.3/javaCompile/classAnalysis.bin
+deleted file mode 100644
+index 48cbb25..0000000
+Binary files a/backend/.gradle/6.8.3/javaCompile/classAnalysis.bin and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/javaCompile/jarAnalysis.bin b/backend/.gradle/6.8.3/javaCompile/jarAnalysis.bin
+deleted file mode 100644
+index 9ad24e6..0000000
+Binary files a/backend/.gradle/6.8.3/javaCompile/jarAnalysis.bin and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/javaCompile/javaCompile.lock b/backend/.gradle/6.8.3/javaCompile/javaCompile.lock
+deleted file mode 100644
+index 19df17a..0000000
+Binary files a/backend/.gradle/6.8.3/javaCompile/javaCompile.lock and /dev/null differ
+diff --git a/backend/.gradle/6.8.3/javaCompile/taskHistory.bin b/backend/.gradle/6.8.3/javaCompile/taskHistory.bin
+deleted file mode 100644
+index 2be34d9..0000000
+Binary files a/backend/.gradle/6.8.3/javaCompile/taskHistory.bin and /dev/null differ
+diff --git a/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+deleted file mode 100644
+index 51fba54..0000000
+Binary files a/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock and /dev/null differ
+diff --git a/backend/.idea/gradle.xml b/backend/.idea/gradle.xml
+deleted file mode 100644
+index 10c8de9..0000000
+--- a/backend/.idea/gradle.xml
++++ /dev/null
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="GradleMigrationSettings" migrationVersion="1" />
+-  <component name="GradleSettings">
+-    <option name="linkedExternalProjectsSettings">
+-      <GradleProjectSettings>
+-        <option name="delegatedBuild" value="true" />
+-        <option name="testRunner" value="GRADLE" />
+-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="corretto-1.8" />
+-        <option name="modules">
+-          <set>
+-            <option value="$PROJECT_DIR$" />
+-          </set>
+-        </option>
+-      </GradleProjectSettings>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/controller/ItemController.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/controller/ItemController.class
+deleted file mode 100644
+index 96e17b0..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/controller/ItemController.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/model/ItemResponseDTO.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/model/ItemResponseDTO.class
+deleted file mode 100644
+index a85e39b..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/model/ItemResponseDTO.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/CartAmountRepository.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/CartAmountRepository.class
+deleted file mode 100644
+index fdada5f..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/CartAmountRepository.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/CartRepository.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/CartRepository.class
+deleted file mode 100644
+index 7b5deb1..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/CartRepository.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/ItemRepository.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/ItemRepository.class
+deleted file mode 100644
+index f2a9807..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/ItemRepository.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/PurchaseAmount.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/PurchaseAmount.class
+deleted file mode 100644
+index f208899..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/PurchaseAmount.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/PurchaseRepository.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/PurchaseRepository.class
+deleted file mode 100644
+index 97bfb1a..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/repository/PurchaseRepository.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/security/SecurityConfigurer.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/security/SecurityConfigurer.class
+deleted file mode 100644
+index 364463d..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/security/SecurityConfigurer.class and /dev/null differ
+diff --git a/backend/build/classes/java/main/com/greenfoxacademy/webshop/service/ItemService.class b/backend/build/classes/java/main/com/greenfoxacademy/webshop/service/ItemService.class
+deleted file mode 100644
+index d8aa073..0000000
+Binary files a/backend/build/classes/java/main/com/greenfoxacademy/webshop/service/ItemService.class and /dev/null differ
+diff --git a/backend/build/resources/main/db/migration/V3_1__add_items.sql b/backend/build/resources/main/db/migration/V3_1__add_items.sql
+deleted file mode 100644
+index 39d0f31..0000000
+--- a/backend/build/resources/main/db/migration/V3_1__add_items.sql
++++ /dev/null
+@@ -1,34 +0,0 @@
+-INSERT INTO item (description, price, title, category)
+-VALUES ('The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.', 32, 'InfernoFox', 3 ),
+-       ('Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.', 17, 'FunkyFox', 0),
+-       ('Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz.', 21, 'AmorFox', 1),
+-       ('Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack.', 38, 'SmirkyFox', 0),
+-       ('Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim.', 23, 'SkeptiFox', 0),
+-       ('Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex.', 28, 'DullFox', 3),
+-       ('Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!', 33, 'AngelFox', 2),
+-       ('"Now fax quiz Jack!" my brave ghost pled.Flummoxed by job, kvetching W. zaps Iraq.', 19, 'PartyFox', 0),
+-       ('Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls.', 22, 'VaccinatedFox', 3),
+-       ('Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox.', 31, 'RetardFox', 3),
+-       ('The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump.', 25, 'DrunkFox', 0),
+-       ('Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog.', 26, 'SantaFox', 2),
+-       ('Watch "Jeopardy!", Alex Trebek''s fun TV quiz game.', 16, 'BatFox', 2),
+-       ('Woven silk pyjamas exchanged for blue quartz. Brawny gods just', 20, 'CatFox', 1);
+-
+-
+-INSERT INTO image (url, item_id)
+-VALUES ('https://live.staticflickr.com/2105/2337937004_102a129d45_k.jpg',1),
+-        ('https://img-9gag-fun.9cache.com/photo/an5YrGE_460s.jpg',1),
+-        ('https://i.etsystatic.com/22929720/r/il/7eda28/2453198640/il_570xN.2453198640_2xx6.jpg',2),
+-        ('https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/fox-love-series-foxy-love-roeselien-raimond.jpg',3),
+-        ('https://external-preview.redd.it/XYJ9wpnPeT6D2NUeSwDxZ-E5I3BTxrnDHjxX4czsA9g.jpg?auto=webp&s=e3bfcedc6479893713c5b05d7d4d7685a5d242da',4),
+-        ('https://i.imgflip.com/2qhrkn.jpg',5),
+-        ('https://pbs.twimg.com/media/EWokvifXgAERn_M.jpg',6),
+-        ('https://i.pinimg.com/originals/1e/d5/2f/1ed52f70873a95ac02fa074e48edfb71.jpg',7),
+-        ('https://spaceshipsandlaserbeams.com/content/blog-posts/party-central/@content/boys-what-does-the-fox-say-party-centerpieces.jpg',8),
+-        ('https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Magazines/2019/June-July/island-foxes-released-JJ19-900x591.ashx?la=en&hash=2030D47FD1D3BF32C319D939719F5B72BEB2645C',9),
+-        ('https://64.media.tumblr.com/tumblr_ljbhfqeMDl1qhtz5no1_640.jpg',10),
+-        ('https://ih1.redbubble.net/image.738414280.4526/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg',11),
+-        ('https://www.warrenphotographic.co.uk/photography/bigs/35593-Red-Fox-cub-in-a-Santa-hat-white-background.jpg',12),
+-        ('https://www.eurekalert.org/multimedia/pub/web/185722_web.jpg',13),
+-        ('http://i.imgur.com/jmDVaUW.jpg',14);
+-
+diff --git a/backend/build/tmp/compileJava/source-classes-mapping.txt b/backend/build/tmp/compileJava/source-classes-mapping.txt
+deleted file mode 100644
+index 7637cff..0000000
+--- a/backend/build/tmp/compileJava/source-classes-mapping.txt
++++ /dev/null
+@@ -1,76 +0,0 @@
+-com/greenfoxacademy/webshop/security/SecurityConfigurer.java
+- com.greenfoxacademy.webshop.security.SecurityConfigurer
+-com/greenfoxacademy/webshop/security/CustomUserDetails.java
+- com.greenfoxacademy.webshop.security.CustomUserDetails
+-com/greenfoxacademy/webshop/model/CartAmount.java
+- com.greenfoxacademy.webshop.model.CartAmount
+-com/greenfoxacademy/webshop/model/PurchaseAmount.java
+- com.greenfoxacademy.webshop.model.PurchaseAmount
+-com/greenfoxacademy/webshop/security/JwtUtil.java
+- com.greenfoxacademy.webshop.security.JwtUtil
+-com/greenfoxacademy/webshop/model/Image.java
+- com.greenfoxacademy.webshop.model.Image
+-com/greenfoxacademy/webshop/repository/PurchaseAmount.java
+- com.greenfoxacademy.webshop.repository.PurchaseAmount
+-com/greenfoxacademy/webshop/exception/UserException.java
+- com.greenfoxacademy.webshop.exception.UserException
+-com/greenfoxacademy/webshop/model/filterAPI/SearchCriteria.java
+- com.greenfoxacademy.webshop.model.filterAPI.SearchCriteria
+-com/greenfoxacademy/webshop/exception/InvalidParametersException.java
+- com.greenfoxacademy.webshop.exception.InvalidParametersException
+-com/greenfoxacademy/webshop/repository/ItemRepository.java
+- com.greenfoxacademy.webshop.repository.ItemRepository
+-com/greenfoxacademy/webshop/model/ItemResponseDTO.java
+- com.greenfoxacademy.webshop.model.ItemResponseDTO
+-com/greenfoxacademy/webshop/exception/ParamAlreadyExistException.java
+- com.greenfoxacademy.webshop.exception.ParamAlreadyExistException
+-com/greenfoxacademy/webshop/repository/CartRepository.java
+- com.greenfoxacademy.webshop.repository.CartRepository
+-com/greenfoxacademy/webshop/exception/MissingParametersException.java
+- com.greenfoxacademy.webshop.exception.MissingParametersException
+-com/greenfoxacademy/webshop/model/Cart.java
+- com.greenfoxacademy.webshop.model.Cart
+-com/greenfoxacademy/webshop/model/CartItemRequestDTO.java
+- com.greenfoxacademy.webshop.model.CartItemRequestDTO
+-com/greenfoxacademy/webshop/security/JwtRequestFilter.java
+- com.greenfoxacademy.webshop.security.JwtRequestFilter
+-com/greenfoxacademy/webshop/service/UserService.java
+- com.greenfoxacademy.webshop.service.UserService
+-com/greenfoxacademy/webshop/model/Category.java
+- com.greenfoxacademy.webshop.model.Category
+-com/greenfoxacademy/webshop/model/User.java
+- com.greenfoxacademy.webshop.model.User
+-com/greenfoxacademy/webshop/controller/UserController.java
+- com.greenfoxacademy.webshop.controller.UserController
+-com/greenfoxacademy/webshop/model/Purchase.java
+- com.greenfoxacademy.webshop.model.Purchase
+-com/greenfoxacademy/webshop/repository/UserRepository.java
+- com.greenfoxacademy.webshop.repository.UserRepository
+-com/greenfoxacademy/webshop/security/CustomUserDetailsService.java
+- com.greenfoxacademy.webshop.security.CustomUserDetailsService
+-com/greenfoxacademy/webshop/model/filterAPI/ItemSearchQueryCriteriaConsumer.java
+- com.greenfoxacademy.webshop.model.filterAPI.ItemSearchQueryCriteriaConsumer
+-com/greenfoxacademy/webshop/repository/PurchaseRepository.java
+- com.greenfoxacademy.webshop.repository.PurchaseRepository
+-com/greenfoxacademy/webshop/WebshopApplication.java
+- com.greenfoxacademy.webshop.WebshopApplication
+-com/greenfoxacademy/webshop/repository/CartAmountRepository.java
+- com.greenfoxacademy.webshop.repository.CartAmountRepository
+-com/greenfoxacademy/webshop/security/AuthenticationExceptionHandler.java
+- com.greenfoxacademy.webshop.security.AuthenticationExceptionHandler
+-com/greenfoxacademy/webshop/model/UserResponseDTO.java
+- com.greenfoxacademy.webshop.model.UserResponseDTO
+-com/greenfoxacademy/webshop/model/Item.java
+- com.greenfoxacademy.webshop.model.Item
+-com/greenfoxacademy/webshop/model/ErrorDTO.java
+- com.greenfoxacademy.webshop.model.ErrorDTO
+-com/greenfoxacademy/webshop/service/ItemService.java
+- com.greenfoxacademy.webshop.service.ItemService
+-com/greenfoxacademy/webshop/controller/ItemController.java
+- com.greenfoxacademy.webshop.controller.ItemController
+-com/greenfoxacademy/webshop/model/filterAPI/IItemDAO.java
+- com.greenfoxacademy.webshop.model.filterAPI.IItemDAO
+-com/greenfoxacademy/webshop/exception/CustomExceptionHandler.java
+- com.greenfoxacademy.webshop.exception.CustomExceptionHandler
+-com/greenfoxacademy/webshop/model/filterAPI/ItemDAO.java
+- com.greenfoxacademy.webshop.model.filterAPI.ItemDAO
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/controller/ItemController.java b/backend/src/main/java/com/greenfoxacademy/webshop/controller/ItemController.java
+index 43eee7a..1d7ea95 100644
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/controller/ItemController.java
++++ b/backend/src/main/java/com/greenfoxacademy/webshop/controller/ItemController.java
+@@ -35,11 +35,11 @@ public class ItemController {
+   @CrossOrigin
+   @GetMapping("/item")
+   public ResponseEntity<List<ItemResponseDTO>> getItemList(
+-      @RequestParam(required = false) String search,
+-      @RequestParam Integer page,
+-      @RequestParam Integer pageSize) {
++      @RequestParam(required = false) String title,
++      @RequestParam(required = false) String description,
++      @RequestParam(required = false) String priceRange) {
+ 
+-    return ResponseEntity.ok(itemService.getItems(search,page, pageSize));
++    return ResponseEntity.ok(itemService.getItems(title,description,priceRange));
+   }
+ 
+   @CrossOrigin
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/exception/CustomExceptionHandler.java b/backend/src/main/java/com/greenfoxacademy/webshop/exception/CustomExceptionHandler.java
+index b224430..fa16aec 100644
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/exception/CustomExceptionHandler.java
++++ b/backend/src/main/java/com/greenfoxacademy/webshop/exception/CustomExceptionHandler.java
+@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
+ @ControllerAdvice
+ public class CustomExceptionHandler {
+ 
+-    @ExceptionHandler(value = {UserException.class,IllegalArgumentException.class})
+-    public ResponseEntity<ErrorDTO> BadRequestExceptionHandler(
+-            Exception ex) {
++    @ExceptionHandler(value = UserException.class)
++    public ResponseEntity<ErrorDTO> userExceptionHandler(
++            UserException ex) {
+         return ResponseEntity.status(400)
+                 .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));
+     }
+@@ -29,4 +29,4 @@ public class CustomExceptionHandler {
+         return ResponseEntity.status(403)
+                 .body(new ErrorDTO(HttpStatus.valueOf(403), ex.getMessage()));
+     }
+-    }
++}
+\ No newline at end of file
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/IItemDAO.java b/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/IItemDAO.java
+deleted file mode 100644
+index 7fa2e83..0000000
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/IItemDAO.java
++++ /dev/null
+@@ -1,11 +0,0 @@
+-package com.greenfoxacademy.webshop.model.filterAPI;
+-
+-import com.greenfoxacademy.webshop.model.Item;
+-
+-import java.util.List;
+-
+-public interface IItemDAO {
+-  List<Item> searchItem(List<SearchCriteria> params,Integer page, Integer pageSize);
+-
+-  void save(Item entity);
+-}
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/ItemDAO.java b/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/ItemDAO.java
+deleted file mode 100644
+index 07a5f70..0000000
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/ItemDAO.java
++++ /dev/null
+@@ -1,50 +0,0 @@
+-package com.greenfoxacademy.webshop.model.filterAPI;
+-
+-import com.greenfoxacademy.webshop.model.Item;
+-import org.springframework.stereotype.Repository;
+-
+-import javax.persistence.EntityManager;
+-import javax.persistence.PersistenceContext;
+-import javax.persistence.TypedQuery;
+-import javax.persistence.criteria.CriteriaBuilder;
+-import javax.persistence.criteria.CriteriaQuery;
+-import javax.persistence.criteria.Predicate;
+-import javax.persistence.criteria.Root;
+-import java.util.List;
+-
+-@Repository
+-public class ItemDAO implements IItemDAO {
+-
+-  @PersistenceContext
+-  private EntityManager entityManager;
+-
+-
+-  @Override
+-  public List<Item> searchItem(List<SearchCriteria> params,Integer page, Integer pageSize) {
+-    CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+-    CriteriaQuery<Item> query = builder.createQuery(Item.class);
+-    Root r = query.from(Item.class);
+-
+-    Predicate predicate = builder.conjunction();
+-
+-    ItemSearchQueryCriteriaConsumer searchConsumer =
+-        new ItemSearchQueryCriteriaConsumer(predicate, builder, r);
+-    params.stream().forEach(searchConsumer);
+-    predicate = searchConsumer.getPredicate();
+-    query.where(predicate);
+-
+-    TypedQuery<Item> typedQuery = entityManager.createQuery(query);
+-    typedQuery.setFirstResult(page*pageSize);
+-    typedQuery.setMaxResults(pageSize);
+-
+-    //List<Item> result = entityManager.createQuery(query).getResultList();
+-    List<Item> result = typedQuery.getResultList();
+-
+-    return result;
+-  }
+-
+-  @Override
+-  public void save(Item entity) {
+-    entityManager.persist(entity);
+-  }
+-}
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/ItemSearchQueryCriteriaConsumer.java b/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/ItemSearchQueryCriteriaConsumer.java
+deleted file mode 100644
+index 31f0c00..0000000
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/ItemSearchQueryCriteriaConsumer.java
++++ /dev/null
+@@ -1,35 +0,0 @@
+-package com.greenfoxacademy.webshop.model.filterAPI;
+-
+-import lombok.AllArgsConstructor;
+-
+-import javax.persistence.criteria.CriteriaBuilder;
+-import javax.persistence.criteria.Predicate;
+-import javax.persistence.criteria.Root;
+-import java.util.function.Consumer;
+-
+-@AllArgsConstructor
+-
+-public class ItemSearchQueryCriteriaConsumer implements Consumer<SearchCriteria> {
+-  private Predicate predicate;
+-  private CriteriaBuilder builder;
+-  private Root r;
+-
+-  @Override
+-  public void accept(SearchCriteria param) throws IllegalArgumentException{
+-    if (param.getOperation().equalsIgnoreCase(">")) {
+-      predicate = builder.and(predicate, builder.greaterThanOrEqualTo(r.get(param.getKey()), param.getValue().toString()));
+-    } else if (param.getOperation().equalsIgnoreCase("<")) {
+-      predicate = builder.and(predicate, builder.lessThanOrEqualTo(r.get(param.getKey()), param.getValue().toString()));
+-    } else if (param.getOperation().equalsIgnoreCase(":")) {
+-      if (r.get(param.getKey()).getJavaType() == String.class) {
+-        predicate = builder.and(predicate, builder.like(r.get(param.getKey()), "%" + param.getValue() + "%"));
+-      } else {
+-        predicate = builder.and(predicate, builder.equal(r.get(param.getKey()), param.getValue()));
+-      }
+-    }
+-  }
+-
+-  public Predicate getPredicate() {
+-    return predicate;
+-  }
+-}
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/SearchCriteria.java b/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/SearchCriteria.java
+deleted file mode 100644
+index 48b37ca..0000000
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/model/filterAPI/SearchCriteria.java
++++ /dev/null
+@@ -1,18 +0,0 @@
+-package com.greenfoxacademy.webshop.model.filterAPI;
+-
+-import lombok.AllArgsConstructor;
+-import lombok.Getter;
+-import lombok.NoArgsConstructor;
+-import lombok.Setter;
+-
+-@Getter
+-@Setter
+-@NoArgsConstructor
+-@AllArgsConstructor
+-
+-public class SearchCriteria {
+-  private String key;
+-  private String operation;
+-  private Object value;
+-
+-}
+diff --git a/backend/src/main/java/com/greenfoxacademy/webshop/service/ItemService.java b/backend/src/main/java/com/greenfoxacademy/webshop/service/ItemService.java
+index cbaa3d9..022e23a 100644
+--- a/backend/src/main/java/com/greenfoxacademy/webshop/service/ItemService.java
++++ b/backend/src/main/java/com/greenfoxacademy/webshop/service/ItemService.java
+@@ -2,18 +2,12 @@ package com.greenfoxacademy.webshop.service;
+ 
+ import com.greenfoxacademy.webshop.model.Item;
+ import com.greenfoxacademy.webshop.model.ItemResponseDTO;
+-import com.greenfoxacademy.webshop.model.filterAPI.IItemDAO;
+-import com.greenfoxacademy.webshop.model.filterAPI.SearchCriteria;
+ import com.greenfoxacademy.webshop.repository.ItemRepository;
+ import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.data.domain.PageRequest;
+-import org.springframework.data.domain.Pageable;
+ import org.springframework.stereotype.Service;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+-import java.util.regex.Matcher;
+-import java.util.regex.Pattern;
+ 
+ @Service
+ public class ItemService {
+@@ -21,25 +15,14 @@ public class ItemService {
+   @Autowired
+   private ItemRepository itemRepository;
+ 
+-  @Autowired
+-  private IItemDAO filterApi;
+-
+-  public List<ItemResponseDTO> getItems (String search, Integer page, Integer pageSize ) {
+-    List<SearchCriteria> params = new ArrayList<>();
+-    Pattern pattern = Pattern.compile("(\\w+?)(:|<|>)(\\w+?),");
+-    Matcher matcher = pattern.matcher(search + ",");
+-    while (matcher.find()) {
+-      params.add(new SearchCriteria(matcher.group(1), matcher.group(2),matcher.group(3) ));
+-    }
+-    List<Item> items = filterApi.searchItem(params,page, pageSize);
+-
++  public List<ItemResponseDTO> getItems (String title,String description,String priceRange) {
++    List<Item> items = itemRepository.findAll();
+     List<ItemResponseDTO> itemResponseDTOS = new ArrayList<>();
+     for (Item item: items
+-    ) {
++         ) {
+       ItemResponseDTO itemResponseDTO = new ItemResponseDTO(item.getId(),item.getTitle(),item.getPrice(),item.getImages().get(0).getUrl());
+       itemResponseDTOS.add(itemResponseDTO);
+     }
+-
+     return itemResponseDTOS;
+   }
+ }

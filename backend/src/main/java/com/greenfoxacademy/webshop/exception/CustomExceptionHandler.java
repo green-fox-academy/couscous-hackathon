@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class CustomExceptionHandler {
 
-    @ExceptionHandler(value = UserException.class)
-    public ResponseEntity<ErrorDTO> userExceptionHandler(
-            UserException ex) {
+    @ExceptionHandler(value = {UserException.class,IllegalArgumentException.class})
+    public ResponseEntity<ErrorDTO> BadRequestExceptionHandler(
+            Exception ex) {
         return ResponseEntity.status(400)
                 .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));
     }
@@ -29,4 +29,4 @@ public class CustomExceptionHandler {
         return ResponseEntity.status(403)
                 .body(new ErrorDTO(HttpStatus.valueOf(403), ex.getMessage()));
     }
-}
+    }

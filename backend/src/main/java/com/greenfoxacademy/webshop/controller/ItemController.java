@@ -40,11 +40,11 @@ public class ItemController {
   @CrossOrigin
   @GetMapping("/item")
   public ResponseEntity<List<ItemResponseDTO>> getItemList(
-      @RequestParam(required = false) String title,
-      @RequestParam(required = false) String description,
-      @RequestParam(required = false) String priceRange) {
+      @RequestParam(required = false) String search,
+      @RequestParam Integer page,
+      @RequestParam Integer pageSize) {
 
-    return ResponseEntity.ok(itemService.getItems(title,description,priceRange));
+    return ResponseEntity.ok(itemService.getItems(search,page, pageSize));
   }
 
   @CrossOrigin
