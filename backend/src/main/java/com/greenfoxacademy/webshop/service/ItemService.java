@@ -40,6 +40,8 @@ public class ItemService {
       itemResponseDTOS.add(itemResponseDTO);
     }
 
+    System.out.println("Git is a son of a git.");
+
     return itemResponseDTOS;
   }
 }
