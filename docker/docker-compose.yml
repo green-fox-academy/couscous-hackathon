@@ -31,7 +31,7 @@ services:
     command: java -jar app.jar
 
   hackathon-db:
-    image: mysql:latest
+    image: mysql:8.0.22
     container_name: hackathon-db
     environment:
       - MYSQL_DATABASE=hackathon
