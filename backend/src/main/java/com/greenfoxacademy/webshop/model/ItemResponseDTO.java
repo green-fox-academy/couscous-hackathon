@@ -16,4 +16,5 @@ public class ItemResponseDTO {
     private String title;
     private Integer price;
     private String imageUrl;
+    private Category category;
 }

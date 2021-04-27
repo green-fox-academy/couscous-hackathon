@@ -35,12 +35,10 @@ public class ItemService {
 
     List<ItemResponseDTO> itemResponseDTOS = new ArrayList<>();
     for (Item item: items
-    ) {
-      ItemResponseDTO itemResponseDTO = new ItemResponseDTO(item.getId(),item.getTitle(),item.getPrice(),item.getImages().get(0).getUrl());
+         ) {
+      ItemResponseDTO itemResponseDTO = new ItemResponseDTO(item.getId(),item.getTitle(),item.getPrice(),item.getImages().get(0).getUrl(), item.getCategory());
       itemResponseDTOS.add(itemResponseDTO);
     }
-
-    System.out.println("Git is a son of a git.");
 
     return itemResponseDTOS;
   }
