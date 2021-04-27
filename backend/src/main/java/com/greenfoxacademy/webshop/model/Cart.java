@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -21,7 +22,7 @@ public class Cart {
   @Id
   private String id;
   private Timestamp createdAt;
-  @OneToMany(mappedBy = "cart")
+  @OneToMany(mappedBy = "cart", cascade = CascadeType.REMOVE)
   private List<CartAmount> cartAmounts;
 
 }
