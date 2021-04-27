@@ -37,13 +37,13 @@ const Shop = () => {
       console.log(error.message);
       setError(error.message);
   }
-  },[])//page, pageSize
+  },[dispatch])//page, pageSize
   
     
   console.log(reducerItemState.items);
   return (
     <div className="store-container">
-      <h2>Welcome to...</h2>
+      <h2>Welcome! Please consider helping our work with a small donation</h2>
       <div className="store">
         {error && <div>{error}</div>}
         {reducerItemState.items &&
