@@ -44,8 +44,12 @@ public class CartController {
 
   @CrossOrigin
   @PutMapping("/cart")
-  public ResponseEntity<?> modifyCartItem(CartItemRequestDTO cartItemRequestDTO) {
-    return ResponseEntity.ok(new PriceResponseDTO(300, 1200));
+  public ResponseEntity<?> modifyCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
+      throws ItemNotFoundException {
+    String cartId = request.getSession().getId();
+    cartService.addItemToCart(cartItem, cartId);
+    return ResponseEntity
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
   }
 
   @CrossOrigin

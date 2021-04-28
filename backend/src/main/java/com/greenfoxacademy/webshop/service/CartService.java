@@ -44,7 +44,8 @@ public class CartService {
     CartAmount cartAmount;
     if (optionalCartAmount.isPresent()) {
       cartAmount = optionalCartAmount.get();
-      cartAmount.setAmount(cartAmount.getAmount() + request.getItemAmount());
+      int amountGreaterThanZero = Math.max(cartAmount.getAmount() + request.getItemAmount(),0);
+      cartAmount.setAmount(amountGreaterThanZero);
     } else {
       cartAmount = new CartAmount(cart, itemService.getItemById(request.getItemId()), request.getItemAmount());
     }
