@@ -4,12 +4,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-} */
 .login-container {
   top: 150px;
   position: relative;
@@ -17,7 +11,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* width: 1200px; */
   transform-style: preserve-3d;
 }
 
@@ -47,6 +40,7 @@
   transition: 0.5s;
   opacity: 0;
   z-index: 10;
+  padding-bottom: 0.5rem;
 }
 .login-container .box:hover h1 {
   top: 30px;
@@ -83,7 +77,6 @@
   color: #fff;
   margin-top: 30px;
   margin-left: auto;
-  /* left: 0; */
   right: 0;
   width: 80%;
   text-align: center;
