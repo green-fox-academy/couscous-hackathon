@@ -11,6 +11,7 @@ import com.greenfoxacademy.webshop.model.ItemDescriptionDTO;
 import com.greenfoxacademy.webshop.model.ItemResponseDTO;
 import com.greenfoxacademy.webshop.model.PriceResponseDTO;
 import com.greenfoxacademy.webshop.repository.ItemRepository;
+import com.greenfoxacademy.webshop.service.CartService;
 import com.greenfoxacademy.webshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,9 +22,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,11 +35,14 @@ import java.util.List;
 public class CartController {
 
   @Autowired
-  private ItemService itemService;
+  private CartService cartService;
 
   @CrossOrigin
   @PostMapping("/cart")
-  public ResponseEntity<Object> newCart(List<CartItemRequestDTO> cartList) {
+  public ResponseEntity<Object> newCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
+      throws ItemNotFoundException {
+   String cartId = request.getSession().getId();
+    cartService.addItemToCart(cartItem,cartId);
     return ResponseEntity.ok("ok");
   }
 

@@ -15,8 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemService {
@@ -50,12 +52,13 @@ public class ItemService {
   }
 
   public Item getItemById(Long id) throws ItemNotFoundException {
+    Optional<Item> optionalItem = itemRepository.findById(id);
     return itemRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Item is not found with this id."));
   }
 
   public ItemDescriptionDTO itemToDescriptionDTO(Item item) throws ItemNotFoundException {
     ItemDescriptionDTO dto = new ItemDescriptionDTO(item.getId(), item.getTitle(), item.getPrice(), item.getDescription(),
-        item.getImages(), cartAmountService.getCartAmountByItemId(item.getId()).getAmount(), item.getCategory());
+        item.getImages().stream().map(i -> i.getUrl()).collect(Collectors.toList()), null, item.getCategory());
     return dto;
   }
 }

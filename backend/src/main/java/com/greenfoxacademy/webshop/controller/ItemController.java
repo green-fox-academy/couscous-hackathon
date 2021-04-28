@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,7 +45,8 @@ public class ItemController {
   public ResponseEntity<List<ItemResponseDTO>> getItemList(
       @RequestParam(required = false) String search,
       @RequestParam Integer page,
-      @RequestParam Integer pageSize) {
+      @RequestParam Integer pageSize
+  ) {
 
     return ResponseEntity.ok(
         itemService.getItems(search, page, pageSize)

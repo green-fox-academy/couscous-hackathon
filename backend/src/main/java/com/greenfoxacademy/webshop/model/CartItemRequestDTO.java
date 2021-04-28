@@ -11,10 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartItemRequestDTO {
-    @JsonProperty(value = "cart_id")
-    private Long cartId;
-    @JsonProperty(value = "user_amount")
-    private Integer userAmount;
     @JsonProperty(value = "item_id")
     private Long itemId;
+    @JsonProperty(value = "item_amount")
+    private Integer itemAmount;
 }
