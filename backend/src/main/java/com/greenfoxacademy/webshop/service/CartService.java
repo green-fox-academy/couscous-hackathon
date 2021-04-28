@@ -51,9 +51,9 @@ public class CartService {
     cartAmountRepository.save(cartAmount);
   }
 
-  public List<CartItemResponseDTO> getCartList(CartRequestDTO cartRequestDTO) throws CartNotFoundException {
+  public List<CartItemResponseDTO> getCartList(CartRequestDTO cartRequestDTO, String cartId) throws CartNotFoundException {
     List<CartItemResponseDTO> cart = new ArrayList<>();
-    getCartByCartId(cartRequestDTO.getCartId()).getCartAmounts().stream().map(
+    getCartByItemAndCartId(cartRequestDTO.getItemId(), cartId).getCartAmounts().stream().map(
         x -> {
           try {
             return cart.add(itemToCartItemResponseDTO(x.getItem(), x.getCart().getId()));
@@ -85,7 +85,7 @@ public class CartService {
     return dto;
   }
 
-  public Cart getCartByCartId(String cartId) throws CartNotFoundException {
-    return cartRepository.findById(cartId).orElseThrow(() -> new CartNotFoundException("Cart is not found with this cart id."));
+  public Cart getCartByItemAndCartId(Long itemId, String cartId) throws CartNotFoundException {
+    return cartAmountService.getCartAmountByItemAndCartId(itemId, cartId).getCart();
   }
 }

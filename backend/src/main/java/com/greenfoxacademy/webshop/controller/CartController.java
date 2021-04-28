@@ -39,8 +39,8 @@ public class CartController {
 
   @CrossOrigin
   @GetMapping("/cart")
-  public ResponseEntity<CartResponseDTO> getCart(CartRequestDTO cartRequestDTO) throws CartNotFoundException {
-    return ResponseEntity.ok(cartService.toCartResponseDTO(cartService.getCartList(cartRequestDTO)));
+  public ResponseEntity<CartResponseDTO> getCart(CartRequestDTO cartRequestDTO, HttpServletRequest request) throws CartNotFoundException {
+    return ResponseEntity.ok(cartService.toCartResponseDTO(cartService.getCartList(cartRequestDTO, request.getSession().getId())));
   }
 
   @CrossOrigin
