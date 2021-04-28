@@ -3,12 +3,14 @@ package com.greenfoxacademy.webshop.service;
 import com.greenfoxacademy.webshop.exception.InvalidParametersException;
 import com.greenfoxacademy.webshop.exception.MissingParametersException;
 import com.greenfoxacademy.webshop.exception.ParamAlreadyExistException;
+import com.greenfoxacademy.webshop.exception.VerificationTokenException;
 import com.greenfoxacademy.webshop.model.User;
 import com.greenfoxacademy.webshop.model.UserResponseDTO;
 import com.greenfoxacademy.webshop.repository.UserRepository;
 import com.greenfoxacademy.webshop.repository.VerificationTokenRepository;
 import com.greenfoxacademy.webshop.security.CustomUserDetailsService;
 import com.greenfoxacademy.webshop.security.JwtUtil;
+import com.greenfoxacademy.webshop.security.VerificationToken;
 import com.greenfoxacademy.webshop.security.VerificationTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +21,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,16 +35,17 @@ public class UserService {
     private CustomUserDetailsService customUserDetailsService;
     private JwtUtil jwtUtil;
     private AuthenticationManager authenticationManager;
-private VerificationTokenService tokenService;
+    private VerificationTokenService tokenService;
 
     @Autowired
-    public UserService(
-            UserRepository userRepository, CustomUserDetailsService customUserDetailsService,
-            JwtUtil jwtUtil, AuthenticationManager authenticationManager) {
+    public UserService(UserRepository userRepository, CustomUserDetailsService customUserDetailsService,
+                       JwtUtil jwtUtil, AuthenticationManager authenticationManager,
+                       VerificationTokenService tokenService) {
         this.userRepository = userRepository;
         this.customUserDetailsService = customUserDetailsService;
         this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
+        this.tokenService = tokenService;
     }
 
     public UserResponseDTO validateLogin(User loginRequest) throws MissingParametersException {
@@ -76,27 +80,32 @@ private VerificationTokenService tokenService;
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found, please log in again"));
     }
 
-    public UserResponseDTO register(User registrationRequest, HttpServletRequest httpRequest)
-            throws MissingParametersException, ParamAlreadyExistException, InvalidParametersException {
+    public UserResponseDTO register(User registrationRequest)
+            throws MissingParametersException, ParamAlreadyExistException, InvalidParametersException, MessagingException {
 
         checkRegistrationRequestParams(registrationRequest);
         User newUser = userRepository.save(
                 new User(registrationRequest.getUsername(), registrationRequest.getEmail(),
                         hashPassword(registrationRequest.getPassword())));
 
-        tokenService.sendRegistrationConfirmationEmail(newUser, httpRequest.getLocale(), httpRequest.getContextPath());
+        tokenService.sendRegistrationConfirmationEmail(newUser, System.getenv("BACKEND_ROOT_PATH"));
 
-        return new UserResponseDTO("ok", registrationRequest.getUsername()
-                + " rockz! Welcome to the Meme creator. You can now log in.", null);
+        return new UserResponseDTO("ok", ("Dear  " + registrationRequest.getUsername()
+                + "! Thank you for your registration. "
+                + "Please check your mailbox for the verification e-mail before you log in."), null);
     }
 
-
+    public User authenticateVerificationToken(String token) throws VerificationTokenException {
+        User user = tokenService.authenticateVerificationToken(token);
+        user.setEnabled(true);
+        return userRepository.save(user);
+    }
 
     private void checkRegistrationRequestParams(User registrationRequest)
             throws MissingParametersException, ParamAlreadyExistException, InvalidParametersException {
         List<String> missingParams = getMissingParams(registrationRequest, true);
         if (missingParams.size() != 0) {
-            throw new MissingParametersException(missingParams.toString());
+            throw new MissingParametersException("Missing parameter(s): " + missingParams.toString());
         }
         if (userRepository.findByUsername(registrationRequest.getUsername()).isPresent()) {
             throw new ParamAlreadyExistException("Username already exists, please choose another one");

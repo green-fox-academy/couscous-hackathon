@@ -5,10 +5,13 @@ import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 
 
@@ -24,28 +27,29 @@ public class CustomExceptionHandler {
         } else if (ex instanceof IllegalArgumentException) {
             logger.warn("IllegalArgumentException: " + ex.getMessage());
         }
+
         return ResponseEntity.status(400)
                 .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));
     }
 
-    @ExceptionHandler(value = UsernameNotFoundException.class)
-    public ResponseEntity<ErrorDTO> usernameNotFoundExceptionHandler(UsernameNotFoundException ex) {
-        logger.warn("UsernameNotFoundException: " + ex.getMessage());
+    @ExceptionHandler(value = {BadCredentialsException.class, DisabledException.class, UsernameNotFoundException.class})
+    public ResponseEntity<ErrorDTO> handleAuthenticationException(AuthenticationException ex) {
+        if (ex instanceof BadCredentialsException) {
+            logger.warn("BadCredentialsException: " + ex.getMessage());
+        } else if (ex instanceof DisabledException) {
+            logger.warn("DisabledException: " + ex.getMessage());
+        } else if (ex instanceof UsernameNotFoundException) {
+            logger.warn("UsernameNotFoundException: " + ex.getMessage());
+        }
+
         return ResponseEntity.status(401)
                 .body(new ErrorDTO(HttpStatus.valueOf(401), ex.getMessage()));
     }
 
-    @ExceptionHandler(value = BadCredentialsException.class)
-    public ResponseEntity<ErrorDTO> handleBadCredentialsException(BadCredentialsException ex) {
-        logger.warn("BadCredentialsException: " + ex.getMessage());
-        return ResponseEntity.status(403)
-                .body(new ErrorDTO(HttpStatus.valueOf(403), ex.getMessage()));
-    }
-
-    @ExceptionHandler(value = SendFailedException.class)
-    public ResponseEntity<ErrorDTO> sendFailedExceptionHandler(SendFailedException ex) {
-        logger.warn("SendFailedException: " + ex.getMessage());
-        return ResponseEntity.status(400)
-                .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));
+    @ExceptionHandler(value = MessagingException.class)
+    public ResponseEntity<ErrorDTO> messagingExceptionHandler(MessagingException ex) {
+        logger.warn("MessagingException: " + ex.getMessage());
+        return ResponseEntity.status(500)
+                .body(new ErrorDTO(HttpStatus.valueOf(500), ex.getMessage()));
     }
 }

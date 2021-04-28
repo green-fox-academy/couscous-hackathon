@@ -22,7 +22,7 @@ public class VerificationToken {
     private String token;
     private Date expiryDate;
 
-    @OneToOne(targetEntity = User.class)
+    @OneToOne(targetEntity = User.class, cascade = CascadeType.REMOVE)
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 

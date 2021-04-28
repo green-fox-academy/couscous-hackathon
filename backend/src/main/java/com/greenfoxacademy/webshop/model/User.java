@@ -1,5 +1,7 @@
 package com.greenfoxacademy.webshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.greenfoxacademy.webshop.security.VerificationToken;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,9 @@ public class User {
     private String email;
     private String password;
     private boolean enabled;
+    @JsonIgnore
+    @OneToOne(mappedBy = "user")
+    private VerificationToken verificationToken;
 
     public User(String username, String email, String password) {
         this.username = username;

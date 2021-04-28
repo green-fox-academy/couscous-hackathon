@@ -1,36 +1,37 @@
 package com.greenfoxacademy.webshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 
 @Component
 public class EmailService {
 
+    @Autowired
     private JavaMailSender emailSender;
 
-    @Autowired
-    public EmailService(JavaMailSender emailSender) {
-        this.emailSender = emailSender;
-    }
+    public void sendRegistrationMessage(String to, String url, String token)
+            throws MessagingException {
+        MimeMessage message = emailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-    public void sendSimpleMessage(String to, String subject, String text) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("couscousfoxhospital.noreply@gmail.com");
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
+        helper.setFrom("couscousfoxhospital.noreply@gmail.com");
+        helper.setTo(to);
+        helper.setSubject("Registration Confirmation");
+        helper.setText("<html><body>" +
+                "<p>Thank you for your registration!<p><br>" +
+                "<p>Please confirm it by clicking on the following link:>" +
+                "<a href=\"" + url + "/registration-confirm?token=" + token + "\">" + token + "</a>" +
+                "<br><p>Couscous Fox Hospital<p>" +
+                "</body></html>", true);
+
         emailSender.send(message);
     }
 
-//    @Bean
-//    public SimpleMailMessage templateSimpleMessage() {
-//        SimpleMailMessage message = new SimpleMailMessage();
-//        message.setText("This is the test email template for your email:\n%s\n");
-//        return message;
-//    }
 
 
 }

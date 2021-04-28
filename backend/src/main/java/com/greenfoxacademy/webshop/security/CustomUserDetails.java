@@ -9,10 +9,12 @@ import java.util.Collection;
 public class CustomUserDetails implements UserDetails {
     private final String username;
     private final String password;
+    private final boolean isEnabled;
 
     public CustomUserDetails(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
+        this.isEnabled = user.isEnabled();
     }
 
     @Override
@@ -47,6 +49,6 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 }
