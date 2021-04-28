@@ -15,7 +15,6 @@ public class CartItemResponseDTO {
   private String title;
   private Integer price;
   private String image;
-  private Integer amount;
   @JsonProperty(value = "user_amount")
   private Integer userAmount;
   @JsonProperty(value = "final_price")
