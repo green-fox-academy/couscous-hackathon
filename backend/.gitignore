@@ -16,6 +16,7 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 .log
+.env
 
 ### IntelliJ IDEA ###
 .idea

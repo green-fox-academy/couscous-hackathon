@@ -5,7 +5,6 @@ import com.greenfoxacademy.webshop.exception.ItemNotFoundException;
 import com.greenfoxacademy.webshop.model.CartItemRequestDTO;
 import com.greenfoxacademy.webshop.model.CartRequestDTO;
 import com.greenfoxacademy.webshop.model.CartResponseDTO;
-import com.greenfoxacademy.webshop.model.PriceResponseDTO;
 import com.greenfoxacademy.webshop.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,13 +38,13 @@ public class CartController {
   public ResponseEntity<CartResponseDTO> getCart(CartRequestDTO cartRequestDTO, HttpServletRequest request)
       throws CartNotFoundException {
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartRequestDTO, request.getSession().getId())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(request.getSession().getId())));
   }
 
   @CrossOrigin
   @PutMapping("/cart")
   public ResponseEntity<?> modifyCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
-      throws ItemNotFoundException {
+      throws ItemNotFoundException, CartNotFoundException {
     String cartId = request.getSession().getId();
     cartService.addItemToCart(cartItem, cartId);
     return ResponseEntity
@@ -54,11 +53,11 @@ public class CartController {
 
   @CrossOrigin
   @DeleteMapping("/cart")
-  public ResponseEntity<CartResponseDTO> deleteItemFromCart(CartRequestDTO cartRequestDTO, HttpServletRequest request)
+  public ResponseEntity<CartResponseDTO> deleteItemFromCart(@RequestBody CartRequestDTO cartRequestDTO, HttpServletRequest request)
       throws CartNotFoundException {
     cartService.deleteItemFromCart(cartRequestDTO, request.getSession().getId());
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartRequestDTO, request.getSession().getId())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(request.getSession().getId())));
   }
 
   @CrossOrigin

@@ -4,6 +4,7 @@ import Login from '../src/pages/Login/Login';
 import Header from './parts/Header/Header';
 import Register from './pages/Register/Register';
 import Shop from './pages/Shop/Shop';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
             <Register />
           </Route>
           <Route exact path="/" component={Shop} />
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
         </Switch>
       </div>
     </Router>
