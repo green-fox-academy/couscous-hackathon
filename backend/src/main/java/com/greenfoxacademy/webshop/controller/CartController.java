@@ -39,7 +39,7 @@ public class CartController {
   public ResponseEntity<CartResponseDTO> getCart(CartRequestDTO cartRequestDTO, HttpServletRequest request)
       throws CartNotFoundException {
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartRequestDTO, request.getSession().getId())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(request.getSession().getId())));
   }
 
   @CrossOrigin
@@ -54,7 +54,7 @@ public class CartController {
       throws CartNotFoundException {
     cartService.deleteItemFromCart(cartRequestDTO, request.getSession().getId());
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartRequestDTO, request.getSession().getId())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(request.getSession().getId())));
   }
 
   @CrossOrigin
