@@ -26,8 +26,8 @@ const CartList = (props) => {
       <div className="cart-image">
         <img src={item.image} alt={item.title} width="100%" />
       </div>
-      <div className="cart-title">{item.title}</div>
-      <div className="cart-price">{item.price} Ft</div>
+      {/* <div className="cart-title">{item.title}</div>
+      <div className="cart-price">{item.price} Ft</div> */}
       <div className="cart-amount">{item.user_amount} db</div>
       <button className="cart-delete" onClick={handleDelete} id={item.id}>
         Delete
