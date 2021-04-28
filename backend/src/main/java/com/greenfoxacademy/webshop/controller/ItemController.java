@@ -8,6 +8,7 @@ import com.greenfoxacademy.webshop.model.Image;
 import com.greenfoxacademy.webshop.model.Item;
 import com.greenfoxacademy.webshop.model.ItemResponseDTO;
 import com.greenfoxacademy.webshop.model.PriceResponseDTO;
+import com.greenfoxacademy.webshop.repository.ItemRepository;
 import com.greenfoxacademy.webshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,9 @@ public class ItemController {
   @Autowired
   private ItemService itemService;
 
+  @Autowired
+  private ItemRepository itemRepository;
+
   @CrossOrigin
   @GetMapping("/item/{id}")
   public ResponseEntity<Item> getItemById(@PathVariable Long id) {
@@ -44,7 +48,9 @@ public class ItemController {
       @RequestParam Integer page,
       @RequestParam Integer pageSize) {
 
-    return ResponseEntity.ok(itemService.getItems(search,page, pageSize));
+    return ResponseEntity.ok(
+        itemService.getItems(search,page, pageSize)
+    );
   }
 
   @CrossOrigin
