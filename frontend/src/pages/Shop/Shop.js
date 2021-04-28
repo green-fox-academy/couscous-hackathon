@@ -19,39 +19,34 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   const [page, setPage] = useState(1);
-  const onChange =(page) =>{
+  const onChange = (page) => {
     setPage(page);
-  }
+  };
   const [pageSize, setPageSize] = useState(6);
   const onShowSizeChange = (current, size) => {
     setPageSize(size);
-  }
+  };
 
   useEffect(() => {
     try {
-<<<<<<< HEAD
-      const response = fetch(`http://localhost:8080/item?page=${page-1}&pageSize=${pageSize}`)
-      .then(response => response.json())
-      .then(response => dispatch(saveAllItems(response)))
-=======
-      const response = fetch('http://localhost:8080/item?page=1&pageSize=6')
+      const response = fetch(
+        `http://localhost:8080/item?page=${page - 1}&pageSize=${pageSize}`
+      )
         .then((response) => response.json())
         .then((response) => dispatch(saveAllItems(response)));
->>>>>>> 96b9276 (cart page create)
       if (response.status !== 200) {
         throw Error(response.error);
       }
     } catch (error) {
       console.log(error.message);
       setError(error.message);
-<<<<<<< HEAD
-  }
-  },[page, pageSize, dispatch])
-  
+    }
+  }, [page, pageSize, dispatch]);
+
   function callback(key) {
-  console.log(key);
-}
-  
+    console.log(key);
+  }
+
   return (
     <div className="store-wrapper">
       <div className="searchbar">
@@ -59,19 +54,34 @@ const Shop = () => {
           <Panel header=" Filter by name" key="1">
             <form className="form">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" autoComplete="off"></input>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autoComplete="off"
+              ></input>
             </form>
-      </Panel>
+          </Panel>
           <Panel header=" Filter by price" key="2">
             <form className="form">
               <label for="price">Price min</label>
-              <input type="number" id="price" name="price" autoComplete="off"></input>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                autoComplete="off"
+              ></input>
             </form>
           </Panel>
           <Panel header=" Filter by description" key="3">
             <form className="form">
               <label for="category">Category</label>
-              <input type="text" id="category" name="category" autoComplete="off"></input>
+              <input
+                type="text"
+                id="category"
+                name="category"
+                autoComplete="off"
+              ></input>
             </form>
           </Panel>
         </Collapse>
@@ -80,40 +90,32 @@ const Shop = () => {
       <div className="store-container">
         <div className="store">
           <div className="welcome">
-            <h2>Welcome! If you are looking for a good cause, please consider helping us to rehabilitate and foster our foxes for release back into the wild. Your purchase will provide basic medicine for lifesaving treatment - and you will have a cute fox buddy too!
+            <h2>
+              Welcome! If you are looking for a good cause, please consider
+              helping us to rehabilitate and foster our foxes for release back
+              into the wild. Your purchase will provide basic medicine for
+              lifesaving treatment - and you will have a cute fox buddy too!
             </h2>
           </div>
           {error && <div>{error}</div>}
           {reducerItemState.items &&
-            reducerItemState.items.map(item => (
+            reducerItemState.items.map((item) => (
               <div className="items" key={item.id}>
-                <ItemCard item={ item } />
+                <ItemCard item={item} />
               </div>
             ))}
-        <div className="pagination">
-        { <Pagination total={ 70 } pageSizeOptions={ [6, 12, 24, 48] } onShowSizeChange={ onShowSizeChange } onChange={ onChange } /> }
-        </div>
+          <div className="pagination">
+            {
+              <Pagination
+                total={70}
+                pageSizeOptions={[6, 12, 24, 48]}
+                onShowSizeChange={onShowSizeChange}
+                onChange={onChange}
+              />
+            }
+          </div>
         </div>
       </div>
-=======
-    }
-  }, [dispatch]); //page, pageSize
-
-  console.log(reducerItemState.items);
-  return (
-    <div className="store-container">
-      <h2>Welcome! Please consider helping our work with a small donation</h2>
-      <div className="store">
-        {error && <div>{error}</div>}
-        {reducerItemState.items &&
-          reducerItemState.items.map((item) => (
-            <div className="items" key={item.id}>
-              <Item item={item} />
-            </div>
-          ))}
-      </div>
-      {/*<Pagination total={ 70 } pageSizeOptions={ [6,12,24,48] } onShowSizeChange={ onShowSizeChange } onChange={ onChange } />;*/}
->>>>>>> 96b9276 (cart page create)
     </div>
   );
 };
