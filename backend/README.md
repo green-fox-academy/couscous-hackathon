@@ -25,14 +25,16 @@
 ###### GET /cart
 - needs 
     - cart_id
-- returns a list
-    - id
-    - title
-    - price
-    - image
-    - amount
-    - user_amount
-    - final_price
+- returns an object: final_price and a list of items
+    - final_price (total, sum of total item prices)
+    - item_list
+        - id
+        - title
+        - price
+        - image
+        - amount
+        - user_amount
+        - final_price
 
 ###### PUT /cart
 - needs

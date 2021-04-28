@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 public class CartResponseDTO {
+  @JsonProperty(value = "item_list")
   List<CartItemResponseDTO> cartItemResponseDTOList;
   @JsonProperty(value = "final_price")
   Integer finalPrice;
