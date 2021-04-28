@@ -32,4 +32,10 @@ public class CartAmount {
   private Item item;
 
   private Integer amount;
+
+  public CartAmount(Cart cart, Item item, Integer amount) {
+    this.cart = cart;
+    this.item = item;
+    this.amount = amount;
+  }
 }
