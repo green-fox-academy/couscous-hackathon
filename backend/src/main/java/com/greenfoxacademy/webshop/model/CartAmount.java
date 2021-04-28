@@ -17,7 +17,6 @@ import javax.persistence.ManyToOne;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 public class CartAmount {
   @Id
@@ -32,5 +31,5 @@ public class CartAmount {
   @JoinColumn(name = "item_id")
   private Item item;
 
-  int amount;
+  private Integer amount;
 }

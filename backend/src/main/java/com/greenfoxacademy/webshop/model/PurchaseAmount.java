@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 public class PurchaseAmount {
   @Id
