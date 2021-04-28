@@ -11,8 +11,12 @@ import javax.mail.internet.MimeMessage;
 @Component
 public class EmailService {
 
-    @Autowired
     private JavaMailSender emailSender;
+
+    @Autowired
+    public EmailService(JavaMailSender emailSender) {
+        this.emailSender = emailSender;
+    }
 
     public void sendRegistrationMessage(String to, String url, String token)
             throws MessagingException {
