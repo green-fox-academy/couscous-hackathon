@@ -1,16 +1,19 @@
 package com.greenfoxacademy.webshop.controller;
 
+import com.greenfoxacademy.webshop.exception.ItemNotFoundException;
 import com.greenfoxacademy.webshop.model.CartItemRequestDTO;
 import com.greenfoxacademy.webshop.model.CartItemResponseDTO;
 import com.greenfoxacademy.webshop.model.CartRequestDTO;
 import com.greenfoxacademy.webshop.model.Category;
 import com.greenfoxacademy.webshop.model.Image;
 import com.greenfoxacademy.webshop.model.Item;
+import com.greenfoxacademy.webshop.model.ItemDescriptionDTO;
 import com.greenfoxacademy.webshop.model.ItemResponseDTO;
 import com.greenfoxacademy.webshop.model.PriceResponseDTO;
 import com.greenfoxacademy.webshop.repository.ItemRepository;
 import com.greenfoxacademy.webshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,10 +38,8 @@ public class ItemController {
 
   @CrossOrigin
   @GetMapping("/item/{id}")
-  public ResponseEntity<Item> getItemById(@PathVariable Long id) {
-    return ResponseEntity.ok(new Item(
-        1L, "TestItem", 50, "Description of TestItem", Category.FUNNY,
-        Arrays.asList(new Image(1L, "https://i.pravatar.cc", null)), null, null));
+  public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id) throws ItemNotFoundException {
+    return ResponseEntity.ok(itemService.itemToDescriptionDTO(itemService.getItemById(id)));
   }
 
   @CrossOrigin
