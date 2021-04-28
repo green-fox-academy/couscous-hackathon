@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
         <div className="box">
           <h1 className="name">Login</h1>

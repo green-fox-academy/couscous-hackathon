@@ -10,8 +10,8 @@
   align-items: center;
   min-height: 100vh;
 } */
-.container {
-  top: 200px;
+.login-container {
+  top: 150px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -21,17 +21,21 @@
   transform-style: preserve-3d;
 }
 
-.container .box {
+.login-container .box {
   position: relative;
-  width: 300px;
-  height: 400px;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+  height: 500px;
   margin: 40px;
-  background: #232323;
+  background: rgba(55, 76, 88, 0.226);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.295);
   border-radius: 20px;
   transform-style: preserve-3d;
+  align-items: center;
 }
 
-.container .box .name {
+.login-container .box .name {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,18 +48,20 @@
   opacity: 0;
   z-index: 10;
 }
-.container .box:hover .name {
-  top: 40px;
+.login-container .box:hover h1 {
+  top: 30px;
   opacity: 1;
 }
-.container .box .button {
+.login-container .box .button {
   position: absolute;
   bottom: 0;
-  left: 35%;
+  left: 40%;
+  text-align: center;
   transform-style: preserve-3d;
   transform: translate(-50%, 0, 75px);
   color: #fff;
-  background: #333;
+  background: rgba(55, 76, 88, 0.226);
+  box-shadow: 0 20px 20px rgba(119, 105, 105, 0.295);
   padding: 10px 25px;
   border-radius: 30px;
   text-decoration: none;
@@ -63,10 +69,10 @@
   opacity: 0;
   z-index: 10;
 }
-.container .box:hover .button {
+.login-container .box:hover .button {
   bottom: 40px;
   opacity: 1;
-  background-color: rgb(92, 81, 81);
+  background-color: rgba(0, 0, 0, 0.295);
 }
 [class*='login-input'] {
   background: transparent;
@@ -75,20 +81,35 @@
   font-size: 1.3rem;
   font-style: italic;
   color: #fff;
+  margin-top: 30px;
+  margin-left: auto;
+  /* left: 0; */
+  right: 0;
+  width: 80%;
+  text-align: center;
 }
 .login-input-OK {
+  text-align: center;
+  margin-left: 40px;
   padding-top: 5em;
-  border-bottom: 2px solid #293b1b;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.295);
   caret-color: #43662a;
 }
+
 .login-input-ERROR {
+  text-align: center;
+  margin-left: 40px;
   padding-top: 5em;
   border-bottom: 2px solid #db4437;
   caret-color: #db4437;
 }
 .errorBox {
-  padding-top: 1rem;
-  height: 24px;
+  text-align: center;
+  margin-left: 40px;
+  padding-top: 2rem;
+  height: 50px;
+  color: #fff;
+  width: 80%;
 }
 .input-error-message {
   color: #db4437;
@@ -97,7 +118,7 @@
   align-items: center;
 }
 
-.container .box .product {
+.login-container .box .product {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,6 +129,6 @@
   transform-style: preserve-3d;
   transform: translate3d(-50%, -50%, 0px) rotate(-15deg);
 }
-.container .box:hover .product {
+.login-container .box:hover .product {
   transform: translate3d(-50%, -50%, 100px) rotate(-15deg);
 }
