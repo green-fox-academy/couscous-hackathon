@@ -18,4 +18,8 @@ public class CartAmountService {
   public CartAmount getCartAmountByItemAndCartId(Long itemId, String cartId) throws CartNotFoundException {
     return cartAmountRepository.findCartAmountByItem_IdAndCart_Id(itemId, cartId).orElseThrow(() -> new CartNotFoundException("Index cannot be found with specified item_id and/or cart_id."));
   }
+
+  public void deleteCartAmount(CartAmount cartAmount){
+    cartAmountRepository.delete(cartAmount);
+  }
 }
