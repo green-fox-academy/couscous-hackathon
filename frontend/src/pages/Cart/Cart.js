@@ -34,7 +34,7 @@ const Cart = () => {
       <div className="cart">
         {error && <div>{error}</div>}
         {cartState.cart &&
-          cartState.cart.map((item) => (
+          cartState.cart.item_list.map((item) => (
             <div className="cart-componens" key={item.id}>
               <CartList item={item} />
               <CartPrice item={item} />

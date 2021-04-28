@@ -44,7 +44,7 @@ const Login = () => {
       cookie.set('accessToken', responseBody.token, {
         path: '/',
       });
-      history.push('/main');
+      history.push('/');
     } catch (error) {
       console.log(error.message);
       setError(error.message);
