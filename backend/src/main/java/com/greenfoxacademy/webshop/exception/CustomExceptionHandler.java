@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.mail.SendFailedException;
+
 
 @ControllerAdvice
 public class CustomExceptionHandler {
@@ -38,5 +40,12 @@ public class CustomExceptionHandler {
         logger.warn("BadCredentialsException: " + ex.getMessage());
         return ResponseEntity.status(403)
                 .body(new ErrorDTO(HttpStatus.valueOf(403), ex.getMessage()));
+    }
+
+    @ExceptionHandler(value = SendFailedException.class)
+    public ResponseEntity<ErrorDTO> sendFailedExceptionHandler(SendFailedException ex) {
+        logger.warn("SendFailedException: " + ex.getMessage());
+        return ResponseEntity.status(400)
+                .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));
     }
 }

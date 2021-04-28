@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class UserController {
 
@@ -32,9 +34,9 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping("/register")
-    public ResponseEntity<UserResponseDTO> register(@RequestBody User registrationRequest)
+    public ResponseEntity<UserResponseDTO> register(@RequestBody User registrationRequest, HttpServletRequest httpRequest)
             throws MissingParametersException, ParamAlreadyExistException, InvalidParametersException {
 
-        return ResponseEntity.ok(userService.register(registrationRequest));
+        return ResponseEntity.ok(userService.register(registrationRequest, httpRequest));
     }
 }
