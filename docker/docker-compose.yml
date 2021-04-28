@@ -9,14 +9,14 @@ services:
     image: openjdk:8
     depends_on:
       - hackathon-db
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://hackathon-db/hackathon?serverTimezone=UTC
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_SECRET_KEY=asd123
+    # environment:
+    # - SPRING_DATASOURCE_URL=jdbc:mysql://hackathon-db/hackathon?serverTimezone=UTC
+    # - SPRING_DATASOURCE_USERNAME=root
+    # - SPRING_DATASOURCE_PASSWORD=password
+    # - SPRING_SECRET_KEY=asd123
     # enveket lehet fájlból is venni, egyszerre env_file és environment nem működik!
-    # env_file:
-    #   - ../backend/.env
+    env_file:
+      - ../backend/.env
 
     # host gépen port : containerben port
     ports:
