@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import './Header.css';
 import deleteStoreAction from '../../actions/deleteStore';
-import login from '../../../src/assets/login.png';
-import signup from '../../../src/assets/signup.png';
-import cart from '../../../src/assets/cart.png';
+import login2 from '../../../src/assets/login2.png'
+import signup2 from '../../../src/assets/signup2.png'
+import cart2 from '../../../src/assets/cart2.png'
 
 const Header = () => {
   const cookie = new Cookies();
@@ -22,17 +22,26 @@ const Header = () => {
 
   const setHeaderToLogin = (
     <nav className="header">
-      <h1>Couscous Fox Hospital</h1>
+      <h1>Welcome to Couscous Fox Sanctuary!</h1>
       <div className="headerLinks">
-        <Link to="/login">
-          <img className="pawicon" src={login} alt="paw icon" height="60px" />
-        </Link>
-        <Link to="/register">
-          <img className="pawicon" src={signup} alt="paw icon" height="60px" />
-        </Link>
-        <Link to="/cart">
-          <img className="pawicon" src={cart} alt="paw icon" height="60px" />
-        </Link>
+        <Link to="/login"><img
+              className="pawicon"
+              src={login2}
+              alt="paw icon"
+              height="60px"
+            /></Link>
+        <Link to="/register"><img
+              className="pawicon"
+              src={signup2}
+              alt="paw icon"
+              height="60px"
+            /></Link>
+        <Link to="/cart"><img
+              className="pawicon"
+              src={cart2}
+              alt="paw icon"
+              height="60px"
+            /></Link>
       </div>
     </nav>
   );

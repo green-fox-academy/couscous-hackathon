@@ -1,6 +1,8 @@
 package com.greenfoxacademy.webshop.service;
 
+import com.greenfoxacademy.webshop.exception.ItemNotFoundException;
 import com.greenfoxacademy.webshop.model.Item;
+import com.greenfoxacademy.webshop.model.ItemDescriptionDTO;
 import com.greenfoxacademy.webshop.model.ItemResponseDTO;
 import com.greenfoxacademy.webshop.model.filterAPI.IItemDAO;
 import com.greenfoxacademy.webshop.model.filterAPI.SearchCriteria;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,6 +23,9 @@ public class ItemService {
 
   @Autowired
   private ItemRepository itemRepository;
+
+  @Autowired
+  private CartAmountService cartAmountService;
 
   @Autowired
   private IItemDAO filterApi;
@@ -41,5 +47,15 @@ public class ItemService {
     }
 
     return itemResponseDTOS;
+  }
+
+  public Item getItemById(Long id) throws ItemNotFoundException {
+    return itemRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Item is not found with this id."));
+  }
+
+  public ItemDescriptionDTO itemToDescriptionDTO(Item item) throws ItemNotFoundException {
+    ItemDescriptionDTO dto = new ItemDescriptionDTO(item.getId(), item.getTitle(), item.getPrice(), item.getDescription(),
+        item.getImages(), cartAmountService.getCartAmountByItemId(item.getId()).getAmount(), item.getCategory());
+    return dto;
   }
 }
