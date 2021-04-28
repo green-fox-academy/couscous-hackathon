@@ -51,6 +51,10 @@ public class CartService {
     cartAmountRepository.save(cartAmount);
   }
 
+  public void deleteItemFromCart(CartRequestDTO request, String cartId) throws CartNotFoundException {
+    cartAmountService.deleteCartAmount(cartAmountService.getCartAmountByItemAndCartId(request.getItemId(), cartId));
+  }
+
   public List<CartItemResponseDTO> getCartList(CartRequestDTO cartRequestDTO, String cartId) throws CartNotFoundException {
     List<CartItemResponseDTO> cart = new ArrayList<>();
     getCartByItemAndCartId(cartRequestDTO.getItemId(), cartId).getCartAmounts().stream().map(
