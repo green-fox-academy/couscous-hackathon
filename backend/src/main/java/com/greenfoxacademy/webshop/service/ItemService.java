@@ -69,7 +69,7 @@ public class ItemService {
         item.getPrice(),
         item.getDescription(),
         item.getImages().stream().map(i -> i.getUrl()).collect(Collectors.toList()),
-        cartAmountService.getCartAmountByItemAndCartId(item.getId(), cartId).getAmount(),
+        null,
         item.getCategory());
     return dto;
   }

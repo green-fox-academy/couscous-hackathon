@@ -48,7 +48,7 @@ public class UserController {
 
         userService.authenticateVerificationToken(token);
 
-        response.setHeader("Location", System.getenv("FRONTEND_ROOT_PATH") + "/");
+        response.setHeader("Location", System.getenv("FRONTEND_ROOT_PATH"));
         response.setStatus(301);
     }
 

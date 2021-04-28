@@ -1,5 +1,4 @@
 package com.greenfoxacademy.webshop.security;
-
 import com.greenfoxacademy.webshop.exception.VerificationTokenException;
 import com.greenfoxacademy.webshop.model.User;
 import com.greenfoxacademy.webshop.repository.VerificationTokenRepository;

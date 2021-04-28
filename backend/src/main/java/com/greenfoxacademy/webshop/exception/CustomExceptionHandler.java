@@ -20,7 +20,7 @@ public class CustomExceptionHandler {
 
     private static final Logger logger = Logger.getLogger(CustomExceptionHandler.class);
 
-    @ExceptionHandler(value = {UserException.class, IllegalArgumentException.class, ItemNotFoundException.class})
+    @ExceptionHandler(value = {UserException.class, IllegalArgumentException.class, ItemNotFoundException.class,ParamAlreadyExistException.class})
     public ResponseEntity<ErrorDTO> badRequestExceptionHandler(Exception ex) {
         if (ex instanceof UserException) {
             logger.warn("UserException: " + ex.getMessage());
