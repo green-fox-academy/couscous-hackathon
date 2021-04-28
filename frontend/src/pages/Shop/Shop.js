@@ -28,8 +28,8 @@ const Shop = () => {
   const [name, setName] = useState('');
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(1000);
+  const [category, setCategory] = useState('');
 
-  
   //document.addEventListener('readystatechange', (event) => {
   //  ShowAll(event)
   //});
@@ -57,7 +57,7 @@ const Shop = () => {
   const onClick = async (event) => {
     setError(null);
     event.preventDefault();
-    const searchUrl = `${backendUrl}/item?page=${page - 1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}`
+    const searchUrl = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}$search=category:${category}`
     try {
       const response = await fetch(searchUrl)
         if (response.status !== 200) {
@@ -78,6 +78,7 @@ const Shop = () => {
     setName('');
     setMin(0);
     setMax(1000);
+    setCategory('');
   }
   return (
     <div className="store-wrapper">
@@ -98,29 +99,45 @@ const Shop = () => {
               </input>
             </Panel>
             <Panel header=" Filter by price" key="2">
-              <label for="min">min   </label>
-              <input type="number" id="min" name="min" autoComplete="off"
+              <label for="min">min $</label>
+              <input type="number" id="min" name="price" autoComplete="off"
                 onChange={ (e) => {
                   setMin(e.target.value);
                 } }>
               </input>
           
-              <label for="max">max</label>
-              <input type="number" id="max" name="max" autoComplete="off"
+              <label for="max">max $</label>
+              <input type="number" id="max" name="price" autoComplete="off"
               onChange={ (e) => {
                   setMax(e.target.value);
-                } }>
+              } }>
               </input>
             </Panel>
             <Panel header=" Filter by description" key="3">
-              <label for="category">Funny  </label>
-              <input type="radio" id="category" name="category" autoComplete="off"></input>
-              <label for="category">Dramatic  </label>
-              <input type="radio" id="category" name="category" autoComplete="off"></input>
-              <label for="category">Fairy  </label>
-              <input type="radio" id="category" name="category" autoComplete="off"></input>
-              <label for="category"><span><span></span></span>Surreal</label>
-              <input type="radio" id="category" name="category" autoComplete="off"></input>
+              <input type="radio" id="funny" name="category" value="0" autoComplete="off"
+                onChange={ (e) => {
+                    setCategory(e.target.value);
+                } }>
+              </input>
+              <label for="funny"> Funny</label>
+              <input type="radio" id="dramatic" name="dramatic" value="1" autoComplete="off"
+              onChange={ (e) => {
+                    setCategory(e.target.value);
+                } }>
+              </input>
+              <label for="fairy"> Fairy</label>
+              <input type="radio" id="fairy" name="fairy" value="2" autoComplete="off"
+              onChange={ (e) => {
+                    setCategory(e.target.value);
+                } }>
+              </input>
+              <label for="dramatic"> Dramatic</label>
+              <input type="radio" id="surreal" name="surreal" value="3" autoComplete="off"
+              onChange={ (e) => {
+                    setCategory(e.target.value);
+                } }>
+              </input>
+              <label for="surreal"> Surreal</label>
             </Panel>
           </Collapse>
           <button onClick={ onClick }>Search</button>
