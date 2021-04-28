@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import { Collapse } from 'antd';
-
+import Tilt from 'react-tilt';
 import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
 
@@ -100,9 +100,11 @@ const Shop = () => {
           {error && <div>{error}</div>}
           {reducerItemState.items &&
             reducerItemState.items.map((item) => (
-              <div className="items" key={item.id}>
-                <ItemCard item={item} />
-              </div>
+              <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
+                <div className="items" key={item.id}>
+                  <ItemCard item={item} />
+                </div>
+              </Tilt>
             ))}
           <div className="pagination">
             {

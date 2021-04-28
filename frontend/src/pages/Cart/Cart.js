@@ -33,7 +33,7 @@ const Cart = () => {
       <h2>Couscous Fox Hospital Shopping Cart:</h2>
       <div className="cart">
         {error && <div>{error}</div>}
-        {cartState.cart &&
+        {cartState.cart.item_list &&
           cartState.cart.item_list.map((item) => (
             <div className="cart-componens" key={item.id}>
               <CartList item={item} />
