@@ -19,28 +19,27 @@ import java.util.List;
 @RestController
 public class ItemController {
 
-  @Autowired
-  private ItemService itemService;
+    @Autowired
+    private ItemService itemService;
 
-  @CrossOrigin
-  @GetMapping("/item/{id}")
-  public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id, HttpServletRequest request)
-      throws ItemNotFoundException, CartNotFoundException {
-    return ResponseEntity.ok(itemService
-        .itemToDescriptionDTO(itemService.getItemById(id), request.getSession().getId()));
-  }
+    @CrossOrigin
+    @GetMapping("/item/{id}")
+    public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id, HttpServletRequest request)
+            throws ItemNotFoundException, CartNotFoundException {
+        return ResponseEntity.ok(itemService
+                .itemToDescriptionDTO(itemService.getItemById(id), request.getSession().getId()));
+    }
 
-  @CrossOrigin
-  @GetMapping("/item")
-  public ResponseEntity<List<ItemResponseDTO>> getItemList(
-      @RequestParam(required = false) String search,
-      @RequestParam Integer page,
-      @RequestParam Integer pageSize
-  ) {
+    @CrossOrigin
+    @GetMapping("/item")
+    public ResponseEntity<List<ItemResponseDTO>> getItemList(
+            @RequestParam(required = false) String search,
+            @RequestParam Integer page,
+            @RequestParam Integer pageSize
+    ) {
 
-    return ResponseEntity.ok(
-        itemService.getItems(search, page, pageSize)
-    );
-  }
+        return ResponseEntity.ok(
+                itemService.getItems(search, page, pageSize)
+        );
+    }
 }
-

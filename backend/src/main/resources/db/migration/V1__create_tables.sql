@@ -56,5 +56,15 @@ create table user
     email    varchar(255),
     password varchar(255),
     username varchar(255),
+    enabled  bit    not null,
     primary key (id)
+);
+
+create table verification_token (
+    id          bigint not null auto_increment,
+    expiry_date datetime(6),
+    token       varchar(255),
+    user_id     bigint not null,
+    primary key (id),
+    foreign key (user_id) references user (id)
 );
