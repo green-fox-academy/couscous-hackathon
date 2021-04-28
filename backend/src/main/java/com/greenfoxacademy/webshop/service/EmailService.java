@@ -1,6 +1,7 @@
 package com.greenfoxacademy.webshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class EmailService {
     private JavaMailSender emailSender;
 
     @Autowired
-    public EmailService(JavaMailSender emailSender) {
+    public EmailService(@Qualifier("getJavaMailSender") JavaMailSender emailSender) {
         this.emailSender = emailSender;
     }
 
