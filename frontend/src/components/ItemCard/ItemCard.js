@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-function Item(props) {
+function ItemCard(props) {
   const { item } = props;
   
   return (
     <div className="item-info">
       <div className="item-image">
-        <img src={item.image} alt="itempicture" width="100%" />
+        <img src={item.imageUrl} alt="itempicture" width="100%" />
       </div>
       <div className="item-title">{item.title}</div>
-      <div className="item-price">{item.price} Huf</div>
+      <div className="item-price">$ {item.price}</div>
       <div className="item-details">
-        <Link to={`/item/${item.id}`}>Show details</Link>
+        <Link to={`/item/${item.id}`}>See details</Link>
       </div>
     </div>
   );
 }
 
-export default Item;
+export default ItemCard;
