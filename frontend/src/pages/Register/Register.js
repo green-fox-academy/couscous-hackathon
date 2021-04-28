@@ -37,7 +37,7 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
+    <div className="register-container">
       <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
         <div className="box">
           <h1 className="name">Register</h1>
