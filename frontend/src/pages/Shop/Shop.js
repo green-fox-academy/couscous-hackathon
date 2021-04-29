@@ -95,7 +95,7 @@ const Shop = () => {
           
           <Collapse defaultActiveKey={['1']} onChange={callback}>
             <Panel header=" Filter by name" key="1" className="filter">
-              <label for="name"></label>
+              <label HtmlFor="name"></label>
               <input
                 type="text"
                 id="name"
@@ -107,13 +107,13 @@ const Shop = () => {
               </input>
             </Panel>
             <Panel header=" Filter by price" key="2" className="filter">
-              <label for="min">min $</label>
+              <label HtmlFor="min">min $</label>
               <input type="number" id="min" name="price" autoComplete="off"
                 onChange={ (e) => {
                   setMin(e.target.value);
                 } }>
               </input>
-              <label for="max">max $</label>
+              <label HtmlFor="max">max $</label>
               <input type="number" id="max" name="price" autoComplete="off"
                 onChange={ (e) => {
                     setMax(e.target.value);
@@ -127,31 +127,31 @@ const Shop = () => {
                     setCategory(e.target.value);
                 } }>
               </input>
-              <label for="funny">  Funny</label>
+              <label HtmlFor="funny">  Funny</label>
               </div>
               <div className="radio">
-              <input type="radio" id="dramatic" name="dramatic" value="1" autoComplete="off"
+              <input type="radio" id="dramatic" name="category" value="1" autoComplete="off"
                 onChange={ (e) => {
                       setCategory(e.target.value);
                 } }>
               </input>
-              <label for="fairy">  Fairy</label>
+              <label HtmlFor="fairy">  Fairy</label>
               </div>
               <div className="radio">
-              <input type="radio" id="fairy" name="fairy" value="2" autoComplete="off"
+              <input type="radio" id="fairy" name="category" value="2" autoComplete="off"
                 onChange={ (e) => {
                       setCategory(e.target.value);
                 } }>
               </input>
-              <label for="dramatic">  Dramatic</label>
+              <label HtmlFor="dramatic">  Dramatic</label>
               </div>
               <div className="radio">
-              <input type="radio" id="surreal" name="surreal" value="3" autoComplete="off"
+              <input type="radio" id="surreal" name="category" value="3" autoComplete="off"
                 onChange={ (e) => {
                       setCategory(e.target.value);
                 } }>
               </input>
-              <label for="surreal">  Surreal</label>
+              <label HtmlFor="surreal">  Surreal</label>
               </div>
             </Panel>
           </Collapse>
