@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Title</title>
@@ -13,16 +13,16 @@
         <th>Price</th>
         <th>Amount</th>
     </tr>
-    <tr th:each="purchaseAmount : ${purchaseAmounts}">
-        <td th:text="${purchaseAmount.item.name}"></td>
+    <tr th:each="purchaseAmount:${purchase.purchaseAmounts}">
+        <td th:text="${purchaseAmount.item.title}"></td>
         <td th:text="${purchaseAmount.item.price}"></td>
-        <td th:="${purchaseAmount.amount}"></td>
+        <td th:text="${purchaseAmount.amount}"></td>
     </tr>
-<!--    <tr>-->
-<!--        <td></td>-->
-<!--        <td>Total price:</td>-->
-<!--        <td th:text="${purchase.totalPrice}"></td>-->
-<!--    </tr>-->
+    <tr>
+        <td></td>
+        <td>Total price:</td>
+        <td th:text="${purchase.totalPrice}"></td>
+    </tr>
 </table>
 
 <p>Thank you for your contribution!</p><br>

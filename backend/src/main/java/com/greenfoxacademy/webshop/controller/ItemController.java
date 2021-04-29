@@ -50,14 +50,4 @@ public class ItemController {
                 itemService.getItems(search, page, pageSize, request));
     }
 
-    @Autowired
-    EmailService emailService;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    PurchaseRepository purchaseRepository;
-    @GetMapping("/test")
-    public void test() throws MessagingException {
-        emailService.sendCheckoutMessage(userRepository.findById(9L).get(), purchaseRepository.findById(1L).get());
-    }
 }

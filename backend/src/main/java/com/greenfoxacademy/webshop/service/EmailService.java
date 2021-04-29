@@ -43,12 +43,10 @@ public class EmailService {
     }
 
     public void sendCheckoutMessage(User user, Purchase purchase) throws MessagingException {
-        HashMap<String, Object> templateModel = new HashMap<>();
-        templateModel.put("username", user.getUsername());
-        templateModel.put("purchaseAmounts", purchase.getPurchaseAmounts());
-
         Context checkoutContext = new Context();
-        checkoutContext.setVariables(templateModel);
+        checkoutContext.setVariable("username", user.getUsername());
+        checkoutContext.setVariable("purchase", purchase);
+
         String htmlBody = templateEngine.process("checkout-template.html", checkoutContext);
 
         sendHtmlMessage(user.getEmail(), "Couscous Fox Hospital contribution", htmlBody);
