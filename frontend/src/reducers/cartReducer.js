@@ -9,6 +9,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_CART:
       return {
+        ...state,
         cart: action.payload,
       };
     case GENERATE_CART_ID:

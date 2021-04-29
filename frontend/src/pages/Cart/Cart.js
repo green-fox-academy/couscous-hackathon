@@ -13,12 +13,18 @@ const Cart = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const userToken = useSelector((state) => state.login.token);
+  const cartId = useSelector((state) => state.cartState.cart_id);
   console.log(userToken);
 
   useEffect(() => {
     try {
       const getCart = async () => {
-        const response = await fetch(`${URL}/cart`);
+        const response = await fetch(`${URL}/cart`, {
+          method: 'GET',
+          headers: {
+            cart_id: cartId,
+          },
+        });
         dispatch(saveAllCart(await response.json()));
       };
       getCart();
@@ -26,6 +32,7 @@ const Cart = () => {
       console.log(error.message);
       setError(error.message);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const handleCheckToken = () => {
