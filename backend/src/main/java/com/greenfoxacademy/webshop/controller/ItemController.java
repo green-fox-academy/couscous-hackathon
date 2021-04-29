@@ -45,10 +45,10 @@ public class ItemController {
 
     @CrossOrigin
     @GetMapping("/item/{id}")
-    public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id, HttpServletRequest request)
-            throws ItemNotFoundException, CartNotFoundException {
+    public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id)
+            throws ItemNotFoundException {
         return ResponseEntity.ok(itemService
-                .itemToDescriptionDTO(itemService.getItemById(id), request.getSession().getId()));
+                .itemToDescriptionDTO(itemService.getItemById(id)));
     }
 
     @CrossOrigin

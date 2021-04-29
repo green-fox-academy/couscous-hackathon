@@ -28,6 +28,7 @@ public class Purchase {
   private User user;
   @OneToMany(mappedBy = "purchase")
   private List<PurchaseAmount> purchaseAmounts;
+  private int totalPrice;
 
 
 

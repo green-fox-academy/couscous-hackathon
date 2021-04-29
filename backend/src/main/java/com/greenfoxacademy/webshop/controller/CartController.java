@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
+
 
 @RestController
 public class CartController {
@@ -29,8 +28,8 @@ public class CartController {
   @CrossOrigin
   @PostMapping("/cart")
   public ResponseEntity<Object> newCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
-      throws ItemNotFoundException {
-    String cartId = request.getSession().getId();
+      throws ItemNotFoundException, CartNotFoundException {
+    String cartId = cartService.getSessionId(request);
     cartService.addItemToCart(cartItem, cartId);
     return ResponseEntity.ok("ok");
   }
@@ -39,18 +38,15 @@ public class CartController {
   @GetMapping("/cart")
   public ResponseEntity<CartResponseDTO> getCart(HttpServletRequest request)
       throws CartNotFoundException {
-
-    Cookie cookie = Arrays.stream(request.getCookies()).filter(n -> n.getName().equals("cart_id")).findFirst()
-        .orElseThrow( () -> new CartNotFoundException("No cart id."));
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(cookie.getValue())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartService.getSessionId(request))));
   }
 
   @CrossOrigin
   @PutMapping("/cart")
   public ResponseEntity<?> modifyCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
       throws ItemNotFoundException, CartNotFoundException {
-    String cartId = request.getSession().getId();
+    String cartId = cartService.getSessionId(request);
     cartService.addItemToCart(cartItem, cartId);
     return ResponseEntity
         .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
@@ -60,9 +56,10 @@ public class CartController {
   @DeleteMapping("/cart")
   public ResponseEntity<CartResponseDTO> deleteItemFromCart(@RequestBody CartRequestDTO cartRequestDTO, HttpServletRequest request)
       throws CartNotFoundException {
-    cartService.deleteItemFromCart(cartRequestDTO, request.getSession().getId());
+    String cartId = cartService.getSessionId(request);
+    cartService.deleteItemFromCart(cartRequestDTO, cartId);
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(request.getSession().getId())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
   }
 
   @CrossOrigin
