@@ -28,7 +28,7 @@
 }
 
 .item-data {
-  grid-template-rows: 5fr 1fr 1fr 1fr;
+  grid-template-rows: 4fr 1fr 1fr 0.5fr 1.5fr;
   grid-column: 2;
   display: grid;
   max-height: 74vh;
@@ -60,4 +60,8 @@
 .add-cart-button:hover {
   border-color: #4788c7;
   color: #4788c7;
+}
+
+.item-errorBox {
+  color: #db4437;
 }

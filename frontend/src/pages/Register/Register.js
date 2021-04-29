@@ -25,7 +25,7 @@ const Register = () => {
       });
       const responseBody = await response.json();
       if (response.status !== 200) {
-        throw Error(responseBody.error);
+        throw Error(responseBody.message);
       }
 
       history.push('/login');
