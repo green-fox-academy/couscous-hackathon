@@ -37,13 +37,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ItemController {
 
     @Autowired
     private ItemService itemService;
 
-    @CrossOrigin
     @GetMapping("/item/{id}")
     public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id)
             throws ItemNotFoundException {
@@ -51,7 +51,6 @@ public class ItemController {
                 .itemToDescriptionDTO(itemService.getItemById(id)));
     }
 
-    @CrossOrigin
     @GetMapping("/item")
     public ResponseEntity<List<ItemResponseDTO>> getItemList(
             @RequestParam(required = false) String search,
