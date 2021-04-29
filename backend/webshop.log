@@ -21,3 +21,6 @@
 28 Apr 2021 21:16:13  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
 28 Apr 2021 21:16:27  WARN CustomExceptionHandler - MessagingException: failed to connect, no password specified?
 28 Apr 2021 21:18:14  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+29 Apr 2021 12:22:37  WARN CustomExceptionHandler - UsernameNotFoundException: No user found with the username Bond
+29 Apr 2021 12:23:34  WARN CustomExceptionHandler - BadCredentialsException: Bad credentials
+29 Apr 2021 14:56:33  WARN CustomExceptionHandler - BadCredentialsException: Bad credentials

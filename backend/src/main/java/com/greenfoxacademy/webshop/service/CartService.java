@@ -17,7 +17,10 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Optional;
 
 import java.util.ArrayList;
@@ -95,5 +98,11 @@ public class CartService {
 
     public Cart getCartByItemAndCartId(Long itemId, String cartId) throws CartNotFoundException {
         return cartAmountService.getCartAmountByItemAndCartId(itemId, cartId).getCart();
+    }
+
+    public String getSessionId (HttpServletRequest request) throws CartNotFoundException {
+      Cookie cookie = Arrays.stream(request.getCookies()).filter(n -> n.getName().equals("cart_id")).findFirst()
+          .orElseThrow( () -> new CartNotFoundException("No cart id."));
+    return cookie.getValue();
     }
 }

@@ -38,6 +38,7 @@ create table purchase
     id           bigint not null,
     purchased_at datetime(6),
     user_id      bigint,
+    total_price integer,
     primary key (id)
 );
 
