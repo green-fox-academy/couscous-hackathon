@@ -14,6 +14,7 @@ const Cart = () => {
   const history = useHistory();
   const userToken = useSelector((state) => state.login.token);
   const cartId = useSelector((state) => state.cartState.cart_id);
+  const finalPrice = useSelector((state) => state.cartState.cart.final_price);
   console.log(userToken);
 
   useEffect(() => {
@@ -39,7 +40,20 @@ const Cart = () => {
     if (!userToken) {
       history.push('/login');
     } else {
-      // history.push('');
+      const addPayment = async () => {
+        const response = await fetch(`${URL}/payment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            cart_id: cartId,
+          },
+        });
+        if (response.status !== 200) {
+          console.log(response.message);
+        }
+        history.push('/feedback');
+      };
+      addPayment();
     }
   };
 
@@ -56,6 +70,9 @@ const Cart = () => {
             </div>
           ))}
         <div className="go-checkout">
+          <div>
+            <p>${finalPrice}</p>
+          </div>
           <button onClick={handleCheckToken}>Proceed to Checkout</button>
         </div>
       </div>
