@@ -1,13 +1,8 @@
 package com.greenfoxacademy.webshop.controller;
 
-import com.greenfoxacademy.webshop.exception.CartNotFoundException;
 import com.greenfoxacademy.webshop.exception.ItemNotFoundException;
 import com.greenfoxacademy.webshop.model.ItemDescriptionDTO;
 import com.greenfoxacademy.webshop.model.ItemResponseDTO;
-import com.greenfoxacademy.webshop.repository.PurchaseRepository;
-import com.greenfoxacademy.webshop.repository.UserRepository;
-import com.greenfoxacademy.webshop.service.CartService;
-import com.greenfoxacademy.webshop.service.EmailService;
 import com.greenfoxacademy.webshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ItemController {
 
     @Autowired
     private ItemService itemService;
 
-    @Autowired
-    private CartService cartService;
-
-    @CrossOrigin
     @GetMapping("/item/{id}")
     public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id)
             throws ItemNotFoundException {
@@ -38,7 +29,6 @@ public class ItemController {
                 .itemToDescriptionDTO(itemService.getItemById(id)));
     }
 
-    @CrossOrigin
     @GetMapping("/item")
     public ResponseEntity<List<ItemResponseDTO>> getItemList(
             @RequestParam(required = false) String search,

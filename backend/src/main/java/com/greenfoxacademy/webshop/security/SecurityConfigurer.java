@@ -21,7 +21,6 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
   @Autowired
   private AuthenticationExceptionHandler authenticationExceptionHandler;
 
-
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     auth.userDetailsService(customUserDetailsService);

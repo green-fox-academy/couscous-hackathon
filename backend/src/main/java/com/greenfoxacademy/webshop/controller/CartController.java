@@ -21,14 +21,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class CartController {
 
   @Autowired
   private CartService cartService;
 
-  @CrossOrigin
   @PostMapping("/cart")
   public ResponseEntity<Object> newCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
           throws ItemNotFoundException, MissingCartIdException {
@@ -38,7 +37,6 @@ public class CartController {
     return ResponseEntity.ok("ok");
   }
 
-  @CrossOrigin
   @GetMapping("/cart")
   public ResponseEntity<CartResponseDTO> getCart(HttpServletRequest request)
           throws CartNotFoundException, MissingCartIdException {
@@ -49,7 +47,6 @@ public class CartController {
 
   }
 
-  @CrossOrigin
   @PutMapping("/cart")
   public ResponseEntity<?> modifyCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
           throws ItemNotFoundException, CartNotFoundException, MissingCartIdException {
@@ -60,7 +57,6 @@ public class CartController {
         .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
   }
 
-  @CrossOrigin
   @DeleteMapping("/cart")
   public ResponseEntity<CartResponseDTO> deleteItemFromCart(@RequestBody CartRequestDTO cartRequestDTO, HttpServletRequest request)
           throws CartNotFoundException, MissingCartIdException {
@@ -71,7 +67,6 @@ public class CartController {
         .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
   }
 
-  @CrossOrigin
   @PostMapping("/payment")
   public ResponseEntity<?> postPayment(CartRequestDTO cartRequestDTO) {
     return ResponseEntity.ok("dummy payment ok");
