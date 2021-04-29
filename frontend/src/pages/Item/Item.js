@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import ImagesGallery from '../../components/ImageGallery/ImageGallery';
 import QuantitySetter from '../../components/QuantitySetter/QuantitySetter';
@@ -6,10 +7,12 @@ import './Item.css';
 
 const Item = () => {
 
+  const [imageList, setImageList] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  //  const [imageList, setImageList] = useState([]);
+  const [error, setError] = useState(null);
+  const history = useHistory();
 
   const url = process.env.REACT_APP_API_URL;
   const location = useLocation();
@@ -24,40 +27,46 @@ const Item = () => {
 
       const responseData = await response.json();
 
-      console.log(responseData);
-
       setTitle(responseData.title);
       setDescription(responseData.description);
       setPrice(responseData.price);
-      //setImageList(responseData.images);
+      setImageList(responseData.image_url_list);
 
-      console.log(responseData.images[0].url);
-
-    } catch (err) {
-      console.log(err);
+      console.log(responseData);
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
     }
-  }
+  };
 
   useEffect(() => {
     getItem();
-  });
+  }, []);
 
-  const imageList = [
-    "https://cdn.shopify.com/s/files/1/0416/0149/products/friendship-tree_plush_b_1024x1024.jpg?v=1596923674",
-    "https://cdn.shopify.com/s/files/1/0416/0149/products/friendship-tree_plush_a_1024x1024.jpg?v=1596923672",
-    "https://cdn.shopify.com/s/files/1/0416/0149/products/friendship-tree_plush_c_1024x1024.jpg?v=1596923668",
-    "https://cdn.shopify.com/s/files/1/0416/0149/products/friendship-tree_plush_d_1024x1024.jpg?v=1596923676",
-    "https://cdn.shopify.com/s/files/1/0416/0149/products/friendship-tree_plush_lifestyle_1024x1024.jpg?v=1596923678",
-    "https://cdn.shopify.com/s/files/1/0416/0149/products/friendship-tree_room_29f15fdb-e0a3-4bef-a7ef-4aa8cd445c5d_1024x1024.jpg?v=1596923670"
-  ];
-
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
 
     const quantity = document.getElementById('quantity').value;
+    const itemData = { item_id: itemId, item_amount: quantity };
 
-    alert(quantity);
-  }
+    try {
+      const response = await fetch(`${URL}/cart`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(itemData),
+      });
+      const responseBody = await response.json();
+
+      if (response.status !== 200) {
+        throw Error(responseBody.message);
+      }
+
+      history.push('/');
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+    }
+  };
 
   return (
     <div className="item-wrapper">
@@ -77,6 +86,9 @@ const Item = () => {
         </div>
         <div className="item-quantity">
           <QuantitySetter />
+        </div>
+        <div className="item-errorBox">
+          {error && <div className="item-error-message">{error}</div>}
         </div>
         <button className="add-cart-button" onClick={handleClick}>Add to cart</button>
       </div>
