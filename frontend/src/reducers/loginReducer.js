@@ -11,12 +11,14 @@ const initialState = {
 
 function loginReducer(state = initialState, action) {
   if (action.type === LOAD_USER_TOKEN) {
+    localStorage.setItem('accessToken', action.payload);
     return {
       ...state,
       token: action.payload,
     };
   }
   if (action.type === LOAD_USER_TOKEN_PAYLOAD) {
+    localStorage.setItem('data', JSON.stringify(action.payload));
     return {
       ...state,
       data: action.payload,
