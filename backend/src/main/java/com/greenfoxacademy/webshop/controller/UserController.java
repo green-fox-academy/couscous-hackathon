@@ -16,6 +16,7 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 public class UserController {
 
@@ -26,14 +27,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<UserResponseDTO> login(@RequestBody User loginRequest) throws MissingParametersException {
 
         return ResponseEntity.ok(userService.validateLogin(loginRequest));
     }
 
-    @CrossOrigin
     @PostMapping("/register")
     public ResponseEntity<UserResponseDTO> register(@RequestBody User registrationRequest)
             throws MissingParametersException, ParamAlreadyExistException, InvalidParametersException, MessagingException {
@@ -41,7 +40,6 @@ public class UserController {
         return ResponseEntity.ok(userService.register(registrationRequest));
     }
 
-    @CrossOrigin
     @GetMapping("/registration-confirm")
     public void confirmRegistration
             (@RequestParam("token") String token, HttpServletResponse response) throws VerificationTokenException {
