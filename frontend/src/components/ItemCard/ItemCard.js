@@ -3,7 +3,7 @@ import React from 'react';
 
 function ItemCard(props) {
   const { item } = props;
-  
+
   return (
     <div className="item-info">
       <div className="item-image">

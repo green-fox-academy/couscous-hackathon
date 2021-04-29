@@ -62,8 +62,8 @@ public class ItemService {
     return itemRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Item is not found with this id."));
   }
 
-  public ItemDescriptionDTO itemToDescriptionDTO(Item item, String cartId)
-      throws ItemNotFoundException, CartNotFoundException {
+  public ItemDescriptionDTO itemToDescriptionDTO(Item item)
+       {
     ItemDescriptionDTO dto = new ItemDescriptionDTO(
         item.getId(),
         item.getTitle(),

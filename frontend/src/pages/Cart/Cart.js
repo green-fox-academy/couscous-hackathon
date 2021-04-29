@@ -4,14 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { saveAllCart } from '../../actions/cartActions';
 import CartList from './CartList';
 import CartPrice from './CartPrice';
-import Checkout from './Checkout';
+import { useHistory } from 'react-router';
 
 const Cart = () => {
   const URL = process.env.REACT_APP_API_URL;
   const cartState = useSelector((state) => state.cartState);
   const [error, setError] = useState(null);
-  const [showResult, setShowResult] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const userToken = useSelector((state) => state.login.token);
+  console.log(userToken);
 
   useEffect(() => {
     try {
@@ -26,28 +28,28 @@ const Cart = () => {
     }
   }, [dispatch]);
 
-  const handleShow = () => setShowResult(true);
+  const handleCheckToken = () => {
+    if (!userToken) {
+      history.push('/login');
+    } else {
+      // history.push('');
+    }
+  };
 
   return (
     <div className="cart-container">
       <h2>Couscous Fox Hospital Shopping Cart:</h2>
       <div className="cart">
         {error && <div>{error}</div>}
-        {cartState.cart &&
-          cartState.cart.map((item) => (
+        {cartState.cart.item_list &&
+          cartState.cart.item_list.map((item) => (
             <div className="cart-componens" key={item.id}>
               <CartList item={item} />
               <CartPrice item={item} />
             </div>
           ))}
         <div className="go-checkout">
-          <button onClick={handleShow}>Proceed to Checkout</button>
-        </div>
-      </div>
-
-      <div className="checkout">
-        <div className="checkout-component">
-          {showResult ? <Checkout /> : null}
+          <button onClick={handleCheckToken}>Proceed to Checkout</button>
         </div>
       </div>
     </div>

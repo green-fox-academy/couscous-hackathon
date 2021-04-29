@@ -1,0 +1,51 @@
+.quantity-wrapper {
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+}
+
+.quantity-label {
+  grid-column: 1 / 4;
+  margin-bottom: 10px;
+}
+
+.quantity-button {
+  padding: 0 1vw;
+  border: 1px solid #d9d9d9;
+  border-radius: 14px;
+  background-color: white;
+  line-height: 30px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.quantity-button:hover {
+  border-color: #4788c7;
+  color: #4788c7;
+}
+
+.dec-button {
+  grid-column: 1/2;
+ }
+
+ .inc-button {
+   grid-column: 3/4;
+  }
+
+  #quantity {
+    grid-column: 2/3;
+    padding: 0 1vw;
+    border: 1px solid #d9d9d9;
+    border-radius: 14px;
+    margin: 0 1vw;
+    text-align: center;
+  }
+
+#quantity:hover {
+  border-color: #4788c7;
+}
+
+#quantity:focus {
+  border-color: #4788c7;
+  box-shadow: 0 0 0 2px rgba(71, 136, 199, 0.2);
+}

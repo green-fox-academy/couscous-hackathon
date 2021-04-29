@@ -4,33 +4,31 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-} */
-.container {
+.register-container {
+  top: 150px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* width: 1200px; */
   transform-style: preserve-3d;
 }
 
-.container .box {
+.register-container .box {
   position: relative;
-  width: 300px;
-  height: 400px;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+  height: 500px;
   margin: 40px;
-  background: #302828;
+  background: rgba(55, 76, 88, 0.226);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.295);
   border-radius: 20px;
   transform-style: preserve-3d;
+  align-items: center;
 }
 
-.container .box .name {
+.register-container .box .name {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,18 +42,20 @@
   z-index: 10;
   padding-bottom: 0.5rem;
 }
-.container .box:hover .name {
+.register-container .box:hover .name {
   top: 20px;
   opacity: 1;
 }
-.container .box .button {
+.register-container .box .button {
   position: absolute;
   bottom: 0;
-  left: 35%;
+  left: 40%;
+  text-align: center;
   transform-style: preserve-3d;
   transform: translate(-50%, 0, 75px);
   color: #fff;
-  background: #333;
+  background: rgba(55, 76, 88, 0.226);
+  box-shadow: 0 20px 20px rgba(119, 105, 105, 0.295);
   padding: 10px 25px;
   border-radius: 30px;
   text-decoration: none;
@@ -63,10 +63,10 @@
   opacity: 0;
   z-index: 10;
 }
-.container .box:hover .button {
-  bottom: 20px;
+.register-container .box:hover .button {
+  bottom: 40px;
   opacity: 1;
-  background-color: rgb(92, 81, 81);
+  background-color: rgba(0, 0, 0, 0.295);
 }
 [class*='register-input'] {
   background: transparent;
@@ -74,30 +74,40 @@
   border: 0;
   font-size: 1.3rem;
   font-style: italic;
-  color: #fff;
+  color: rgba(0, 0, 0, 0.295);
+  margin-top: 5px;
+  margin-left: auto;
+  right: 0;
+  width: 80%;
+  text-align: center;
 }
 .register-input-OK {
-  padding-top: 3.4em;
-  border-bottom: 2px solid #293b1b;
+  text-align: center;
+  margin-left: 40px;
+  padding-top: 4em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.295);
   caret-color: #43662a;
 }
 .register-input-ERROR {
-  padding-top: 3.4em;
+  text-align: center;
+  margin-left: 40px;
+  padding-top: 4em;
   border-bottom: 2px solid #db4437;
   caret-color: #db4437;
 }
 .errorBox {
+  text-align: center;
+  margin-left: 40px;
   padding-top: 0.5rem;
-  height: 24px;
+  height: 50px;
 }
 .input-error-message {
   color: #db4437;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.container .box .product {
+.register-container .box .product {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,6 +118,6 @@
   transform-style: preserve-3d;
   transform: translate3d(-50%, -50%, 0px) rotate(-15deg);
 }
-.container .box:hover .product {
+.register-container .box:hover .product {
   transform: translate3d(-50%, -50%, 100px) rotate(-15deg);
 }
