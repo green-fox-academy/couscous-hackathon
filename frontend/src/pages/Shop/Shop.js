@@ -7,6 +7,8 @@ import { Collapse } from 'antd';
 import Tilt from 'react-tilt';
 import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { MdContentCopy } from "react-icons/md";
 
 const { Panel } = Collapse;
 const backendUrl = process.env.REACT_APP_API_URL;
@@ -29,13 +31,11 @@ const Shop = () => {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(1000);
   const [category, setCategory] = useState('');
+  const [searchUrl, setSearchUrl] = useState('');
+  const [isCopied, setIsCopied] = useState(false);
 
-  //document.addEventListener('readystatechange', (event) => {
-  //  ShowAll(event)
-  //});
-  
-    useEffect(() => {
-    const url = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}`
+  useEffect(() => {
+    const url = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`;
     try {
       const response = fetch(url)
         .then((response) => response.json())
@@ -55,11 +55,11 @@ const Shop = () => {
   }
 
   const onClick = async (event) => {
-    setError(null);
     event.preventDefault();
-    const searchUrl = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}$search=category:${category}`
+    setError(null);
+    setSearchUrl(`http://localhost:3000/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`);
     try {
-      const response = await fetch(searchUrl)
+      const response = await fetch(`${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`)
         if (response.status !== 200) {
           throw Error(response.error);
         }
@@ -80,13 +80,21 @@ const Shop = () => {
     setMax(1000);
     setCategory('');
   }
+
+  const onCopyText = () => {
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1000);
+  };
+  
   return (
     <div className="store-wrapper">
       <div className="searchbar">
         <form className="form">
           
           <Collapse defaultActiveKey={['1']} onChange={callback}>
-            <Panel header=" Filter by name" key="1">
+            <Panel header=" Filter by name" key="1" className="filter">
               <label for="name"></label>
               <input
                 type="text"
@@ -98,50 +106,64 @@ const Shop = () => {
                 } }>
               </input>
             </Panel>
-            <Panel header=" Filter by price" key="2">
+            <Panel header=" Filter by price" key="2" className="filter">
               <label for="min">min $</label>
               <input type="number" id="min" name="price" autoComplete="off"
                 onChange={ (e) => {
                   setMin(e.target.value);
                 } }>
               </input>
-          
               <label for="max">max $</label>
               <input type="number" id="max" name="price" autoComplete="off"
-              onChange={ (e) => {
-                  setMax(e.target.value);
-              } }>
+                onChange={ (e) => {
+                    setMax(e.target.value);
+                } }>
               </input>
             </Panel>
-            <Panel header=" Filter by description" key="3">
+            <Panel header=" Filter by description" key="3" className="filter">
+              <div className="radio">
               <input type="radio" id="funny" name="category" value="0" autoComplete="off"
                 onChange={ (e) => {
                     setCategory(e.target.value);
                 } }>
               </input>
-              <label for="funny"> Funny</label>
+              <label for="funny">  Funny</label>
+              </div>
+              <div className="radio">
               <input type="radio" id="dramatic" name="dramatic" value="1" autoComplete="off"
-              onChange={ (e) => {
-                    setCategory(e.target.value);
+                onChange={ (e) => {
+                      setCategory(e.target.value);
                 } }>
               </input>
-              <label for="fairy"> Fairy</label>
+              <label for="fairy">  Fairy</label>
+              </div>
+              <div className="radio">
               <input type="radio" id="fairy" name="fairy" value="2" autoComplete="off"
-              onChange={ (e) => {
-                    setCategory(e.target.value);
+                onChange={ (e) => {
+                      setCategory(e.target.value);
                 } }>
               </input>
-              <label for="dramatic"> Dramatic</label>
+              <label for="dramatic">  Dramatic</label>
+              </div>
+              <div className="radio">
               <input type="radio" id="surreal" name="surreal" value="3" autoComplete="off"
-              onChange={ (e) => {
-                    setCategory(e.target.value);
+                onChange={ (e) => {
+                      setCategory(e.target.value);
                 } }>
               </input>
-              <label for="surreal"> Surreal</label>
+              <label for="surreal">  Surreal</label>
+              </div>
             </Panel>
           </Collapse>
           <button onClick={ onClick }>Search</button>
-          <button onClick={ showAll}>Back to all</button>
+          <button onClick={ showAll }>Back to all</button>
+          <button Save search
+            className="url">Save search
+              <CopyToClipboard text={ searchUrl } onCopy={onCopyText}>
+                <span>{isCopied ? "    Copied!    " : <MdContentCopy />}</span>
+              </CopyToClipboard>
+            
+          </button>
         </form>
       </div>
       <div className="store-container">
