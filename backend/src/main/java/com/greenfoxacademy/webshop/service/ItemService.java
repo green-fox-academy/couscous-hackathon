@@ -11,6 +11,7 @@ import com.greenfoxacademy.webshop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +31,7 @@ public class ItemService {
   @Autowired
   private IItemDAO filterApi;
 
-  public List<ItemResponseDTO> getItems(String search, Integer page, Integer pageSize) {
+  public List<ItemResponseDTO> getItems(String search, Integer page, Integer pageSize, HttpServletRequest request) {
     List<SearchCriteria> params = new ArrayList<>();
     Pattern pattern = Pattern.compile("(\\w+?)(:|<|>)(\\w+?),");
     Matcher matcher = pattern.matcher(search + ",");
