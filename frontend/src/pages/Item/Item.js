@@ -36,8 +36,6 @@ const Item = () => {
       setDescription(responseData.description);
       setPrice(responseData.price);
       setImageList(responseData.image_url_list);
-
-      console.log(responseData);
     } catch (error) {
       console.log(error);
       setError(error.message);
@@ -53,15 +51,10 @@ const Item = () => {
 
     const quantity = document.getElementById('quantity').value;
     const itemData = { item_id: itemId, item_amount: quantity };
-    console.log(itemData);
 
+    let toString = cartid.toString();
+    console.log(toString);
     try {
-      const response = await fetch(`${url}/cart`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        //TODO: ha van sessionID add to POST method
-        body: JSON.stringify(itemData),
-      });
       if (!cartid) {
         function makeid(length) {
           var result = [];
@@ -80,8 +73,22 @@ const Item = () => {
         cookie.set('cart_id', cart_id, {
           complete: true,
         });
+        if (!toString) {
+          toString = cart_id;
+        }
         dispatch(generateCartId(cart_id));
       }
+
+      const response = await fetch(`${url}/cart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          cart_id: toString,
+        },
+        //TODO: ha van sessionID add to POST method
+        body: JSON.stringify(itemData),
+      });
+
       if (response.status !== 200) {
         throw Error(response.message);
       }
