@@ -4,9 +4,9 @@ import { useLocation } from 'react-router-dom';
 import ImagesGallery from '../../components/ImageGallery/ImageGallery';
 import QuantitySetter from '../../components/QuantitySetter/QuantitySetter';
 import './Item.css';
+import Cookies from 'universal-cookie';
 
 const Item = () => {
-
   const [imageList, setImageList] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -48,17 +48,25 @@ const Item = () => {
 
     const quantity = document.getElementById('quantity').value;
     const itemData = { item_id: itemId, item_amount: quantity };
+    console.log(itemData);
 
     try {
-      const response = await fetch(`${URL}/cart`, {
+      const response = await fetch(`${url}/cart`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        //TODO: ha van sessionID add to POST method
         body: JSON.stringify(itemData),
       });
-      const responseBody = await response.json();
+      console.log(response);
+      //TODO: Save sessionID to Cookie from responseHeader!!!
+      // const cookie = new Cookies();
+      console.log(response.headers.get('set-cooki'));
+      for (const header of response.headers) {
+        console.log(header);
+      }
 
       if (response.status !== 200) {
-        throw Error(responseBody.message);
+        throw Error(response.message);
       }
 
       history.push('/');
@@ -74,8 +82,7 @@ const Item = () => {
         <h2>{title}</h2>
       </div>
       <div className="item-gallery">
-        <ImagesGallery imageList={imageList}
-        />
+        <ImagesGallery imageList={imageList} />
       </div>
       <div className="item-data">
         <div className="item-description">
@@ -90,10 +97,12 @@ const Item = () => {
         <div className="item-errorBox">
           {error && <div className="item-error-message">{error}</div>}
         </div>
-        <button className="add-cart-button" onClick={handleClick}>Add to cart</button>
+        <button className="add-cart-button" onClick={handleClick}>
+          Add to cart
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Item;
