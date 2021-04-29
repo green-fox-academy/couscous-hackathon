@@ -2,6 +2,7 @@ package com.greenfoxacademy.webshop.controller;
 
 import com.greenfoxacademy.webshop.exception.CartNotFoundException;
 import com.greenfoxacademy.webshop.exception.ItemNotFoundException;
+import com.greenfoxacademy.webshop.exception.MissingCartIdException;
 import com.greenfoxacademy.webshop.model.CartItemRequestDTO;
 import com.greenfoxacademy.webshop.model.CartRequestDTO;
 import com.greenfoxacademy.webshop.model.CartResponseDTO;
@@ -30,8 +31,9 @@ public class CartController {
   @CrossOrigin
   @PostMapping("/cart")
   public ResponseEntity<Object> newCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
-      throws ItemNotFoundException, CartNotFoundException {
-    String cartId = cartService.getSessionId(request);
+          throws ItemNotFoundException, MissingCartIdException {
+
+    String cartId = cartService.getCartId(request);
     cartService.addItemToCart(cartItem, cartId);
     return ResponseEntity.ok("ok");
   }
@@ -39,20 +41,20 @@ public class CartController {
   @CrossOrigin
   @GetMapping("/cart")
   public ResponseEntity<CartResponseDTO> getCart(HttpServletRequest request)
-      throws CartNotFoundException {
+          throws CartNotFoundException, MissingCartIdException {
 
-    Cookie cookie = Arrays.stream(request.getCookies()).filter(n -> n.getName().equals("cart_id")).findFirst()
-        .orElseThrow( () -> new CartNotFoundException("No cart id."));
+    String cartId = cartService.getCartId(request);
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartService.getSessionId(request))));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
 
   }
 
   @CrossOrigin
   @PutMapping("/cart")
   public ResponseEntity<?> modifyCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
-      throws ItemNotFoundException, CartNotFoundException {
-    String cartId = cartService.getSessionId(request);
+          throws ItemNotFoundException, CartNotFoundException, MissingCartIdException {
+
+    String cartId = cartService.getCartId(request);
     cartService.addItemToCart(cartItem, cartId);
     return ResponseEntity
         .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
@@ -61,8 +63,9 @@ public class CartController {
   @CrossOrigin
   @DeleteMapping("/cart")
   public ResponseEntity<CartResponseDTO> deleteItemFromCart(@RequestBody CartRequestDTO cartRequestDTO, HttpServletRequest request)
-      throws CartNotFoundException {
-    String cartId = cartService.getSessionId(request);
+          throws CartNotFoundException, MissingCartIdException {
+
+    String cartId = cartService.getCartId(request);
     cartService.deleteItemFromCart(cartRequestDTO, cartId);
     return ResponseEntity
         .ok(cartService.toCartResponseDTO(cartService.getCartList(cartId)));
