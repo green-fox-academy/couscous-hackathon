@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 
 @RestController
 public class CartController {
@@ -36,10 +38,13 @@ public class CartController {
 
   @CrossOrigin
   @GetMapping("/cart")
-  public ResponseEntity<CartResponseDTO> getCart(CartRequestDTO cartRequestDTO, HttpServletRequest request)
+  public ResponseEntity<CartResponseDTO> getCart(HttpServletRequest request)
       throws CartNotFoundException {
+
+    Cookie cookie = Arrays.stream(request.getCookies()).filter(n -> n.getName().equals("cart_id")).findFirst()
+        .orElseThrow( () -> new CartNotFoundException("No cart id."));
     return ResponseEntity
-        .ok(cartService.toCartResponseDTO(cartService.getCartList(request.getSession().getId())));
+        .ok(cartService.toCartResponseDTO(cartService.getCartList(cookie.getValue())));
   }
 
   @CrossOrigin
