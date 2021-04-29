@@ -35,7 +35,7 @@ const Shop = () => {
         .then((response) => response.json())
         .then((response) => dispatch(saveAllItems(response)));
       if (response.status !== 200) {
-        throw Error(response.error);
+        throw Error(response.message);
       }
     } catch (error) {
       console.log(error.message);

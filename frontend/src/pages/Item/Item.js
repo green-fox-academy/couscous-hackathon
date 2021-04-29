@@ -31,6 +31,8 @@ const Item = () => {
       setDescription(responseData.description);
       setPrice(responseData.price);
       setImageList(responseData.image_url_list);
+
+      console.log(responseData);
     } catch (error) {
       console.log(error);
       setError(error.message);
@@ -39,7 +41,7 @@ const Item = () => {
 
   useEffect(() => {
     getItem();
-  });
+  }, []);
 
   const handleClick = async (e) => {
     e.preventDefault();
