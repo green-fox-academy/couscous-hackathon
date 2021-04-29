@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+* {
+  margin: auto;
+  font-family: 'Architects Daughter', cursive;
+}
+
+.cart-container h2 {
+  margin: 30px 0px 10px 35px;
+  font-size: 20px;
+  width: fit-content;
+}
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr, 3fr;
+}
+
+.cart {
+  width: 20%;
+  text-align: center;
+  margin: 0;
+  padding: 10px 10px;
+  grid-template-columns: 1fr, 3fr;
+  grid-auto-rows: minmax(50px, auto);
+  justify-items: start;
+  grid-column: 1/2;
+}
+.cart .cart-info {
+  min-height: 100px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.295);
+  font-size: 15px;
+  background-color: rgba(55, 76, 88, 0.384);
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+  grid-auto-rows: minmax(5px, auto);
+  justify-items: baseline;
+  align-items: center;
+}
+.cart .cart-info:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgb(72, 107, 146);
+}
+
+.cart .cart-image {
+  grid-column: 1/2;
+  min-width: 50px;
+  grid-row: 1/2;
+  /* padding: 0; */
+  min-height: 20px;
+}
+
+.cart .cart-price {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  padding: 20px;
+}
+.cart .cart-title {
+  grid-column: 1/3;
+  grid-row: 3/4;
+}
+.cart-price {
+  text-align: center;
+  margin: auto;
+  padding: 20px 20px 20px 20px;
+  grid-template-columns: 1fr, 3fr;
+  grid-auto-rows: minmax(50px, auto);
+}
+.cart-componens {
+  display: grid;
+}
+.checkout {
+  grid-column: 2/3;
+  width: 70%;
+  width: 20%;
+  text-align: center;
+  margin: 0;
+  padding: 10px 10px;
+  grid-template-columns: 1fr, 3fr;
+  grid-auto-rows: minmax(50px, auto);
+  justify-items: start;
+}

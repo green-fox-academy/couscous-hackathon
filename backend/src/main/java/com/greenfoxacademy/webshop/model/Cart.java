@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -19,10 +20,15 @@ import java.util.List;
 
 @Entity
 public class Cart {
-  @Id
-  private String id;
-  private Timestamp createdAt;
-  @OneToMany(mappedBy = "cart", cascade = CascadeType.REMOVE)
-  private List<CartAmount> cartAmounts;
+    @Id
+    private String id;
+    private Timestamp createdAt;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.REMOVE)
+    private List<CartAmount> cartAmounts;
 
+    public Cart(String id) {
+        this.id = id;
+        createdAt = new Timestamp(System.currentTimeMillis());
+        cartAmounts = new ArrayList<>();
+    }
 }

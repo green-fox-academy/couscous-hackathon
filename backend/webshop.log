@@ -1,0 +1,23 @@
+28 Apr 2021 14:10:32  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 14:10:43  WARN CustomExceptionHandler - UserException: User with this email address already exists
+28 Apr 2021 15:36:02  WARN CustomExceptionHandler - DisabledException: User is disabled
+28 Apr 2021 16:24:34  WARN CustomExceptionHandler - UserException: [password]
+28 Apr 2021 16:25:22  WARN CustomExceptionHandler - UserException: [password]
+28 Apr 2021 16:28:54  WARN CustomExceptionHandler - UserException: Missing parameter(s): [password]
+28 Apr 2021 16:53:01  WARN CustomExceptionHandler - UserException: Invalid verification token
+28 Apr 2021 17:02:36  WARN CustomExceptionHandler - UserException: Invalid verification token
+28 Apr 2021 17:03:07  WARN CustomExceptionHandler - UserException: Invalid verification token
+28 Apr 2021 17:03:14  WARN CustomExceptionHandler - UserException: Invalid verification token
+28 Apr 2021 17:12:56  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 17:13:05  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 17:13:14  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 17:13:19  WARN CustomExceptionHandler - UserException: User with this email address already exists
+28 Apr 2021 17:33:50  WARN CustomExceptionHandler - UserException: User with this email address already exists
+28 Apr 2021 17:50:29  WARN CustomExceptionHandler - MessagingException: Couldn't connect to host, port: localhost, 25; timeout -1
+28 Apr 2021 17:50:47  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 21:07:37  WARN CustomExceptionHandler - MessagingException: failed to connect, no password specified?
+28 Apr 2021 21:10:05  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 21:15:59  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 21:16:13  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
+28 Apr 2021 21:16:27  WARN CustomExceptionHandler - MessagingException: failed to connect, no password specified?
+28 Apr 2021 21:18:14  WARN CustomExceptionHandler - UserException: Username already exists, please choose another one
