@@ -1,15 +1,15 @@
-import { React, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import { Collapse } from 'antd';
-
+import Tilt from 'react-tilt';
 import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Panel } = Collapse;
-const backendUrl = process.env.REACT_APP_API_URL;
+//const backendUrl = process.env.REACT_APP_API_URL;
 //const url = `${backendUrl}/item`;
 //const url2 = `https://fakestoreapi.com/products`;
 
@@ -35,7 +35,7 @@ const Shop = () => {
         .then((response) => response.json())
         .then((response) => dispatch(saveAllItems(response)));
       if (response.status !== 200) {
-        throw Error(response.error);
+        throw Error(response.message);
       }
     } catch (error) {
       console.log(error.message);
@@ -100,9 +100,11 @@ const Shop = () => {
           {error && <div>{error}</div>}
           {reducerItemState.items &&
             reducerItemState.items.map((item) => (
-              <div className="items" key={item.id}>
-                <ItemCard item={item} />
-              </div>
+              <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
+                <div className="items" key={item.id}>
+                  <ItemCard item={item} />
+                </div>
+              </Tilt>
             ))}
           <div className="pagination">
             {

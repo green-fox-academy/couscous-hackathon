@@ -39,17 +39,18 @@ public class CartService {
     @Autowired
     ItemService itemService;
 
-    public void addItemToCart(CartItemRequestDTO request, String cartId) throws ItemNotFoundException {
-        Cart cart = cartRepository.findById(cartId)
-                .orElse(cartRepository.save(new Cart(cartId, new Timestamp(System.currentTimeMillis()), null)));
-        Optional<CartAmount> optionalCartAmount =
-                cartAmountRepository.findCartAmountByItem_IdAndCart_Id(request.getItemId(), cartId);
-        CartAmount cartAmount;
-        if (optionalCartAmount.isPresent()) {
-            cartAmount = optionalCartAmount.get();
-            cartAmount.setAmount(cartAmount.getAmount() + request.getItemAmount());
-        } else {
-            cartAmount = new CartAmount(cart, itemService.getItemById(request.getItemId()), request.getItemAmount());
+  public void addItemToCart(CartItemRequestDTO request, String cartId) throws ItemNotFoundException {
+    Cart cart = getCartById(cartId);
+
+    Optional<CartAmount> optionalCartAmount =
+        cartAmountRepository.findCartAmountByItem_IdAndCart_Id(request.getItemId(), cartId);
+    CartAmount cartAmount;
+    if (optionalCartAmount.isPresent()) {
+      cartAmount = optionalCartAmount.get();
+      int amountNonNegative = Math.max(cartAmount.getAmount() + request.getItemAmount(),0);
+      cartAmount.setAmount(amountNonNegative);
+    } else {
+      cartAmount = new CartAmount(cart, itemService.getItemById(request.getItemId()), request.getItemAmount());
         }
         cartAmountRepository.save(cartAmount);
     }

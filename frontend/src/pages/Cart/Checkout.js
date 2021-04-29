@@ -24,7 +24,7 @@ const Checkout = () => {
       });
       const responseBody = await response.json();
       if (response.status !== 200) {
-        throw Error(responseBody.error);
+        throw Error(responseBody.message);
       }
       history.push('/success');
     } catch (error) {
