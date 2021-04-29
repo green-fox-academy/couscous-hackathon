@@ -1,7 +1,8 @@
-import { GET_CART } from '../constans/actionTypes';
+import { GET_CART, GENERATE_CART_ID } from '../constans/actionTypes';
 
 const INITIAL_STATE = {
   cart: [],
+  cart_id: '',
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -9,6 +10,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case GET_CART:
       return {
         cart: action.payload,
+      };
+    case GENERATE_CART_ID:
+      return {
+        ...state,
+        cart_id: action.payload,
       };
     default:
       return state;
