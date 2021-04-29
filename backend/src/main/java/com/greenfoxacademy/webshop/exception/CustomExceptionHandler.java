@@ -20,13 +20,9 @@ public class CustomExceptionHandler {
   private static final Logger logger = Logger.getLogger(CustomExceptionHandler.class);
 
   @ExceptionHandler(value = {UserException.class, IllegalArgumentException.class,
-      ItemNotFoundException.class, ParamAlreadyExistException.class, CartNotFoundException.class})
+      ItemNotFoundException.class, ParamAlreadyExistException.class, CartException.class})
   public ResponseEntity<ErrorDTO> badRequestExceptionHandler(Exception ex) {
-    if (ex instanceof UserException) {
-      logger.warn("UserException: " + ex.getMessage());
-    } else if (ex instanceof IllegalArgumentException) {
-      logger.warn("IllegalArgumentException: " + ex.getMessage());
-    }
+      logger.warn(ex.getClass().toString() + ": " + ex.getMessage());
 
     return ResponseEntity.status(400)
         .body(new ErrorDTO(HttpStatus.valueOf(400), ex.getMessage()));

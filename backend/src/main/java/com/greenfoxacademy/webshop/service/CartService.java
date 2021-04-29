@@ -2,6 +2,7 @@ package com.greenfoxacademy.webshop.service;
 
 import com.greenfoxacademy.webshop.exception.CustomExceptionHandler;
 import com.greenfoxacademy.webshop.exception.ItemNotFoundException;
+import com.greenfoxacademy.webshop.exception.MissingCartIdException;
 import com.greenfoxacademy.webshop.model.Cart;
 import com.greenfoxacademy.webshop.model.CartAmount;
 import com.greenfoxacademy.webshop.model.CartItemRequestDTO;
@@ -42,18 +43,18 @@ public class CartService {
     @Autowired
     ItemService itemService;
 
-  public void addItemToCart(CartItemRequestDTO request, String cartId) throws ItemNotFoundException {
-    Cart cart = getCartById(cartId);
+    public void addItemToCart(CartItemRequestDTO request, String cartId) throws ItemNotFoundException {
+        Cart cart = getCartById(cartId);
 
-    Optional<CartAmount> optionalCartAmount =
-        cartAmountRepository.findCartAmountByItem_IdAndCart_Id(request.getItemId(), cartId);
-    CartAmount cartAmount;
-    if (optionalCartAmount.isPresent()) {
-      cartAmount = optionalCartAmount.get();
-      int amountNonNegative = Math.max(cartAmount.getAmount() + request.getItemAmount(),0);
-      cartAmount.setAmount(amountNonNegative);
-    } else {
-      cartAmount = new CartAmount(cart, itemService.getItemById(request.getItemId()), request.getItemAmount());
+        Optional<CartAmount> optionalCartAmount =
+                cartAmountRepository.findCartAmountByItem_IdAndCart_Id(request.getItemId(), cartId);
+        CartAmount cartAmount;
+        if (optionalCartAmount.isPresent()) {
+            cartAmount = optionalCartAmount.get();
+            int amountNonNegative = Math.max(cartAmount.getAmount() + request.getItemAmount(), 0);
+            cartAmount.setAmount(amountNonNegative);
+        } else {
+            cartAmount = new CartAmount(cart, itemService.getItemById(request.getItemId()), request.getItemAmount());
         }
         cartAmountRepository.save(cartAmount);
     }
@@ -100,9 +101,11 @@ public class CartService {
         return cartAmountService.getCartAmountByItemAndCartId(itemId, cartId).getCart();
     }
 
-    public String getSessionId (HttpServletRequest request) throws CartNotFoundException {
-      Cookie cookie = Arrays.stream(request.getCookies()).filter(n -> n.getName().equals("cart_id")).findFirst()
-          .orElseThrow( () -> new CartNotFoundException("No cart id."));
-    return cookie.getValue();
+    public String getCartId(HttpServletRequest request) throws MissingCartIdException {
+        String cartId = request.getHeader("cart_id");
+        if (cartId == null) {
+            throw new MissingCartIdException("no cart id received");
+        }
+        return cartId;
     }
 }
