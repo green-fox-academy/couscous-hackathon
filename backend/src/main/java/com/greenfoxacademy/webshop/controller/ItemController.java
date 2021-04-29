@@ -19,25 +19,24 @@ import java.util.List;
 @RestController
 public class ItemController {
 
-    @Autowired
-    private ItemService itemService;
+  @Autowired
+  private ItemService itemService;
 
-    @GetMapping("/item/{id}")
-    public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id)
-            throws ItemNotFoundException {
-        return ResponseEntity.ok(itemService
-                .itemToDescriptionDTO(itemService.getItemById(id)));
-    }
+  @GetMapping("/item/{id}")
+  public ResponseEntity<ItemDescriptionDTO> getItemById(@PathVariable Long id)
+      throws ItemNotFoundException {
+    return ResponseEntity.ok(itemService
+        .itemToDescriptionDTO(itemService.getItemById(id)));
+  }
 
-    @GetMapping("/item")
-    public ResponseEntity<List<ItemResponseDTO>> getItemList(
-            @RequestParam(required = false) String search,
-            @RequestParam Integer page,
-            @RequestParam Integer pageSize,
-            HttpServletRequest request) {
+  @GetMapping("/item")
+  public ResponseEntity<List<ItemResponseDTO>> getItemList(
+      @RequestParam(required = false) String search,
+      @RequestParam Integer page,
+      @RequestParam Integer pageSize,
+      HttpServletRequest request) {
 
-        return ResponseEntity.ok(
-                itemService.getItems(search, page, pageSize, request));
-    }
-
+    return ResponseEntity.ok(
+        itemService.getItems(search, page, pageSize, request));
+  }
 }

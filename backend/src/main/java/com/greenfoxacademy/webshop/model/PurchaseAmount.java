@@ -29,4 +29,9 @@ public class PurchaseAmount {
   private Item item;
   int amount;
 
+  public PurchaseAmount(Purchase purchase, Item item, int amount){
+    this.purchase = purchase;
+    this.item = item;
+    this.amount = amount;
+  }
 }
