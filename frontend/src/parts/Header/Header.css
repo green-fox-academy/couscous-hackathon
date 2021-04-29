@@ -3,29 +3,36 @@
   display: grid;
   align-items: center;
   grid-template-columns: 2fr 7fr 1fr;
-  background-color: rgba(48, 40, 40, 0);
   padding: 10px;
+  background-color: rgba(48, 40, 40, 0);
 }
 .header a {
+  margin-left: 20px;
   text-decoration: none;
-  margin-left: 20px; 
 }
 .header .headerLinks {
-  font-size:17px;
-  width:50vh;
   grid-column: 3/4;
+  display: flex;
+  width:50vh;
+  font-size:17px;
 }
 .pawicon{
+  padding: 5px;
   border-radius: 50px;
   box-shadow : 0 20px 20px rgba(0, 0, 0, 0.295);
-  padding: 5px;
   background-color: white;
 }
 .header h1 {
-  color: rgb(207,94,59);
-  font-size: 1.7rem;
   grid-column: 2/3;
   display: inline;
-  text-align: start;
   margin-left: 5%;
+  color: rgb(207,94,59);
+  font-size: 1.7rem;
+  text-align: start;
+}
+
+.header-logo {
+  width: 10vh;
+  padding: 5px;
+  margin-left: 16vw;
 }

@@ -1,10 +1,11 @@
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from '../src/pages/Login/Login';
+import Cart from './pages/Cart/Cart';
 import Header from './parts/Header/Header';
+import Item from './pages/Item/Item';
+import Login from '../src/pages/Login/Login';
 import Register from './pages/Register/Register';
 import Shop from './pages/Shop/Shop';
-import Cart from './pages/Cart/Cart';
+import './App.css';
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
+          <Route path="/item">
+            <Item />
+          </Route>
           <Route exact path="/login">
             <Login />
           </Route>

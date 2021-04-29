@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
@@ -9,7 +9,7 @@ import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Panel } = Collapse;
-const backendUrl = process.env.REACT_APP_API_URL;
+//const backendUrl = process.env.REACT_APP_API_URL;
 //const url = `${backendUrl}/item`;
 //const url2 = `https://fakestoreapi.com/products`;
 
