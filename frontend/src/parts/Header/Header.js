@@ -38,6 +38,10 @@ const Header = () => {
         /></Link>
       </div>
       <h1>Welcome to Couscous Fox Sanctuary!</h1>
+      
+            <h2>If you are looking for a good cause, please consider helping us rehabilitate and foster our foxes for release back into the wild. Your purchase will provide basic medicine for lifesaving treatment - and you will have a cute fox buddy too!
+            </h2>
+          
       <div className="headerLinks">
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
           <Link to="/login"><img
