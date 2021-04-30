@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Cart from './pages/Cart/Cart';
+import Feedback from './pages/Feedback/Feedback';
 import Header from './parts/Header/Header';
 import Item from './pages/Item/Item';
 import Login from '../src/pages/Login/Login';
@@ -25,6 +26,9 @@ function App() {
           <Route exact path="/" component={Shop}></Route>
           <Route exact path="/cart">
             <Cart />
+          </Route>
+          <Route exact path="/feedback">
+            <Feedback />
           </Route>
         </Switch>
       </div>

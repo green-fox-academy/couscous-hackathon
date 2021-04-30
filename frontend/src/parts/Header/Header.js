@@ -87,6 +87,11 @@ const Header = () => {
 
   const setHeaderToMain = (
     <nav className="header">
+      <div>
+        <Link to="/">
+          <img className="header-logo" src={logo} alt="fox logo" />
+        </Link>
+      </div>
       <h1>Welcome to Couscous Fox Sanctuary!</h1>
       <div className="headerLinks">
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
