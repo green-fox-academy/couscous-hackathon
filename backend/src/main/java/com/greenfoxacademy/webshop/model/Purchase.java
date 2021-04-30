@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Purchase {
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;
-  @OneToMany(mappedBy = "purchase")
+  @OneToMany(mappedBy = "purchase", cascade = CascadeType.ALL)
   private List<PurchaseAmount> purchaseAmounts;
   private int totalPrice;
 

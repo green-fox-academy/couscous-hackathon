@@ -11,6 +11,7 @@ import com.greenfoxacademy.webshop.model.Purchase;
 import com.greenfoxacademy.webshop.model.PurchaseResponseDTO;
 import com.greenfoxacademy.webshop.service.CartService;
 import com.greenfoxacademy.webshop.service.PurchaseService;
+import com.greenfoxacademy.webshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -31,6 +33,8 @@ public class CartController {
   private CartService cartService;
   @Autowired
   private PurchaseService purchaseService;
+  @Autowired
+  private UserService userService;
 
   @PostMapping("/cart")
   public ResponseEntity<Object> newCartItem(@RequestBody CartItemRequestDTO cartItem, HttpServletRequest request)
@@ -72,13 +76,10 @@ public class CartController {
   }
 
   @PostMapping("/payment")
-  public ResponseEntity<PurchaseResponseDTO> postCheckout(HttpServletRequest request)
-      throws CartNotFoundException, PurchaseException, MissingCartIdException {
+  public ResponseEntity<String> postCheckout(HttpServletRequest request)
+      throws CartNotFoundException, PurchaseException, MissingCartIdException, MessagingException {
     String cartId = cartService.getCartId(request);
-    Purchase purchase = purchaseService.savePurchase(
-        purchaseService.cartToPurchase(cartId));
-    cartService.deleteCart(cartId);
-    return ResponseEntity
-        .ok(purchaseService.toPurchaseResponseDTO(purchaseService.getPurchaseList(purchase.getId(), cartId)));
+    purchaseService.checkout(cartId, userService.getAuthenticatedUser());
+    return ResponseEntity.ok("ok");
   }
 }

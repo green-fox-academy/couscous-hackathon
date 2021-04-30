@@ -35,7 +35,7 @@ create table item
 
 create table purchase
 (
-    id           bigint not null,
+    id           bigint  not null auto_increment,
     purchased_at datetime(6),
     user_id      bigint,
     total_price integer,

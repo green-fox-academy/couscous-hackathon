@@ -23,7 +23,7 @@ public class Cart {
     @Id
     private String id;
     private Timestamp createdAt;
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<CartAmount> cartAmounts;
 
     public Cart(String id) {
