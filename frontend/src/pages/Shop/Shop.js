@@ -44,7 +44,6 @@ const Shop = () => {
   let savedTitle = savedTitleList[1];
   let savedMaxList = allSearchParams[1].split('<');
   let savedMax = savedMaxList[1];
-
   let savedMinList = allSearchParams[2].split('>')
   console.log(savedMinList)
   let savedMin = savedMinList[1];
@@ -52,7 +51,7 @@ const Shop = () => {
 
   let savedCategoryList = allSearchParams[3].split(':')
   let savedCategory = savedCategoryList[1];
-  url = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${savedTitle}&search=price<${savedMax}&search=price>${savedMin}&search=category:${savedCategory}`;
+  url = `${backendUrl}/page=${page-1}&pageSize=${pageSize}&search=title:${savedTitle}&search=price<${savedMax}&search=price>${savedMin}&search=category:${savedCategory}`;
   }
   //const savedPage = searchParams.get('page');
   //const savedPageSize = searchParams.get('pageSize');
