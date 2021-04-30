@@ -35,7 +35,7 @@ public class EmailService {
         String htmlBody = "<html><body>" +
                 "<p>Thank you for your registration!<p>" +
                 "<p>Please confirm it by clicking on the following link: >" +
-                "<a href=\"" + url + "/registration-confirm?token=" + token + "\">" + token + "</a>" +
+                "<a href=\"" + url + "registration-confirm?token=" + token + "\">" + token + "</a>" +
                 "<br><p>Couscous Fox Hospital<p>" +
                 "</body></html>";
 
