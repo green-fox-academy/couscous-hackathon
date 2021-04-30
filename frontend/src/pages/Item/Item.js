@@ -54,14 +54,13 @@ const Item = () => {
     const itemData = { item_id: itemId, item_amount: quantity };
 
     let toString = cartid.toString();
-    console.log(toString);
     try {
       if (!cartid) {
         function makeid(length) {
-          var result = [];
-          var characters =
+          let result = [];
+          const characters =
             'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-          var charactersLength = characters.length;
+          const charactersLength = characters.length;
           for (var i = 0; i < length; i++) {
             result.push(
               characters.charAt(Math.floor(Math.random() * charactersLength))

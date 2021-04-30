@@ -73,7 +73,7 @@ const Cart = () => {
           <div>
             <p>${finalPrice}</p>
           </div>
-          <button onClick={handleCheckToken}>Proceed to Checkout</button>
+          <button className="cart-checkout-button" onClick={handleCheckToken}>Proceed to Checkout</button>
         </div>
       </div>
     </div>
