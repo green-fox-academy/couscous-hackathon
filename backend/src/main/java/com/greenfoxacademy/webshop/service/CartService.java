@@ -72,9 +72,13 @@ public class CartService {
         return cartList;
     }
 
-    private Cart getCartById(String cartId) {
+    public Cart getCartById(String cartId) {
         return cartRepository.findById(cartId)
                 .orElse(cartRepository.save(new Cart(cartId)));
+    }
+
+    public void deleteCart(String cartId){
+    cartRepository.delete(getCartById(cartId));
     }
 
     public CartResponseDTO toCartResponseDTO(List<CartItemResponseDTO> list) {
