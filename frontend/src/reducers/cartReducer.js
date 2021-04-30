@@ -8,10 +8,13 @@ const INITIAL_STATE = {
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_CART:
+      localStorage.setItem('cart', JSON.stringify(action.payload));
       return {
+        ...state,
         cart: action.payload,
       };
     case GENERATE_CART_ID:
+      localStorage.setItem('cart_id', action.payload);
       return {
         ...state,
         cart_id: action.payload,

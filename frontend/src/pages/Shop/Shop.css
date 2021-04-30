@@ -13,10 +13,10 @@
   grid-column:1/2;
   background-color: rgb(207,94,59);
   height: 100vh;
-  width: 17%;
+  width: 20vw;
   position:fixed;
   top: 0;
-  padding: 30vh 2vh;
+  padding: 4vh 2vh;
 }
 .store-wrapper .searchbar .header{
   font-size: 25px;
@@ -24,8 +24,8 @@
 .store-container{
   grid-column: 2/3;
   padding: 10px;
-  margin: 10px;
-  width: 70vh;
+  margin: 0px 10px;
+  width: 83vw;
 }
 .store  {
   width: 70%;
@@ -40,14 +40,14 @@
   grid-column: 1/4;
   margin-left:0%;
   text-align: left;
+  font-size: 10px;
 }
-.store-container .welcome h2{
-  font-size: 17px;
+.form .welcome h2{
+  font-size: 12px;
 }
-
 .store .item-info{
   margin: auto;
-  height: 250px;
+  height: 300px;
   padding: 30px;
   margin: 10px;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.295);
@@ -98,13 +98,86 @@
 .store-container .pagination{
   grid-column: 1/4;
   justify-self: center;
+  position: fixed; 
+  bottom: 15px;
+  width: 100vw;
 }
 .store-container .ant-pagination .ant-pagination-item{
   border-radius: 14px;
+  box-shadow : 0 20px 20px rgba(0, 0, 0, 0.295)
 }
 .store-container .ant-pagination .ant-pagination-options .ant-select-selector{
   border-radius: 14px;
+  box-shadow : 0 20px 20px rgba(0, 0, 0, 0.295)
 }
 .store-container .ant-pagination .ant-pagination-item-link{
   border-radius: 14px;
+  box-shadow : 0 20px 20px rgba(0, 0, 0, 0.295)
+}
+.ant-collapse-header{
+  border-radius: 14px !important;
+  background-color: white;
+  height: 8vh;
+}
+.form .ant-collapse .ant-collapse-item .ant-collapse-content{
+  border-radius: 14px;
+  background-color: white;
+}
+.form .ant-collapse .ant-collapse-item{
+  background-color: rgb(207, 94, 59);
+  border-bottom: none !important;
+}
+.form .ant-collapse{
+  background-color: rgb(207, 94, 59);
+  border-color: rgb(207, 94, 59);
+  margin: 0;
+}
+.form .url p{
+  overflow-wrap: break-word;
+  max-width: 170px;
+}
+#name{
+  border-radius: 7px;
+  width: 100%;
+}
+#min{
+  border-radius: 7px;
+  width: 60%;
+  margin-left: 40%;
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+#max{
+  border-radius: 7px;
+  width: 60%;
+  margin-left: 40%;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+.store-wrapper button{
+  border-radius: 14px;
+  padding: 10px 20px;
+  background-color: rgba(55, 76, 88, 0.308);
+  border-style: none;
+  width: 60%;
+  margin-left: 10% !important;
+  text-align: left;
+}
+.store-wrapper .filter{
+  border-radius: 14px;
+  padding: 0px 20px;
+  background-color: rgba(55, 76, 88, 0.308);
+  border-style: none;
+  text-align: left;
+}
+button:hover{
+  background-color: rgba(55, 76, 88, 0.658);
+}
+.ant-collapse-content-box{
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+  grid-auto-rows: minmax(5px, auto);
+}
+.radio{
+  margin-left: 0px;
 }

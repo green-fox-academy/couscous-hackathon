@@ -1,5 +1,5 @@
 ###### GET  /item/id
--accepts an id as path variable
+- needs: id as path variable
 - returns for example:
     - id
     - title

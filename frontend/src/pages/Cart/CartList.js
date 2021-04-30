@@ -6,12 +6,16 @@ const CartList = (props) => {
   const { item } = props;
   const URL = process.env.REACT_APP_API_URL;
   const dispatch = useDispatch();
+  const cartId = useSelector((state) => state.cartState.cart_id);
 
   const handleDelete = () => {
     try {
       const deleteCart = async () => {
         const response = await fetch(`${URL}/cart/` + item.id, {
           method: 'DELETE',
+          headers: {
+            cart_id: cartId,
+          },
         });
         dispatch(saveAllCart(await response.json()));
       };

@@ -31,43 +31,55 @@ const Header = () => {
   const setHeaderToLogin = (
     <nav className="header">
       <div>
-        <Link to="/"><img
-          className="header-logo"
-          src={logo}
-          alt="fox logo"
-        /></Link>
+        <Link to="/">
+          <img className="header-logo" src={logo} alt="fox logo" />
+        </Link>
       </div>
       <h1>Welcome to Couscous Fox Sanctuary!</h1>
+
+      <h2>
+        If you are looking for a good cause, please consider helping us
+        rehabilitate and foster our foxes for release back into the wild. Your
+        purchase will provide basic medicine for lifesaving treatment - and you
+        will have a cute fox buddy too!
+      </h2>
+
       <div className="headerLinks">
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
-          <Link to="/login"><img
-            className="pawicon"
-            src={login}
-            alt="paw icon"
-            height="60px"
-            onMouseEnter={e => (e.target.src = login2)}
-            onMouseLeave={e => (e.target.src = login)}
-          /></Link>
+          <Link to="/login">
+            <img
+              className="pawicon"
+              src={login}
+              alt="paw icon"
+              height="60px"
+              onMouseEnter={(e) => (e.target.src = login2)}
+              onMouseLeave={(e) => (e.target.src = login)}
+            />
+          </Link>
         </Tilt>
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
-          <Link to="/register"><img
-            className="pawicon"
-            src={signup}
-            alt="paw icon"
-            height="60px"
-            onMouseEnter={e => (e.target.src = signup2)}
-            onMouseLeave={e => (e.target.src = signup)}
-          /></Link>
+          <Link to="/register">
+            <img
+              className="pawicon"
+              src={signup}
+              alt="paw icon"
+              height="60px"
+              onMouseEnter={(e) => (e.target.src = signup2)}
+              onMouseLeave={(e) => (e.target.src = signup)}
+            />
+          </Link>
         </Tilt>
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
-          <Link to="/cart"><img
-            className="pawicon"
-            src={cart}
-            alt="paw icon"
-            height="60px"
-            onMouseEnter={e => (e.target.src = cart2)}
-            onMouseLeave={e => (e.target.src = cart)}
-          /></Link>
+          <Link to="/cart">
+            <img
+              className="pawicon"
+              src={cart}
+              alt="paw icon"
+              height="60px"
+              onMouseEnter={(e) => (e.target.src = cart2)}
+              onMouseLeave={(e) => (e.target.src = cart)}
+            />
+          </Link>
         </Tilt>
       </div>
     </nav>
@@ -78,24 +90,28 @@ const Header = () => {
       <h1>Welcome to Couscous Fox Sanctuary!</h1>
       <div className="headerLinks">
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
-          <Link to="/login" onClick={handleLogoutClick}><img
-            className="pawicon"
-            src={logout}
-            alt="paw icon"
-            height="60px"
-            onMouseEnter={e => (e.target.src = logout2)}
-            onMouseLeave={e => (e.target.src = logout)}
-          /></Link>
+          <Link to="/login" onClick={handleLogoutClick}>
+            <img
+              className="pawicon"
+              src={logout}
+              alt="paw icon"
+              height="60px"
+              onMouseEnter={(e) => (e.target.src = logout2)}
+              onMouseLeave={(e) => (e.target.src = logout)}
+            />
+          </Link>
         </Tilt>
         <Tilt className="Tilt" options={{ max: 25, speed: 400 }}>
-          <Link to="/cart"><img
-            className="pawicon"
-            src={cart}
-            alt="paw icon"
-            height="60px"
-            onMouseEnter={e => (e.target.src = cart2)}
-            onMouseLeave={e => (e.target.src = cart)}
-          /></Link>
+          <Link to="/cart">
+            <img
+              className="pawicon"
+              src={cart}
+              alt="paw icon"
+              height="60px"
+              onMouseEnter={(e) => (e.target.src = cart2)}
+              onMouseLeave={(e) => (e.target.src = cart)}
+            />
+          </Link>
         </Tilt>
       </div>
     </nav>
