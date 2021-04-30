@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React, {useEffect, useState, useMemo } from 'react';
 import './Shop.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveAllItems } from '../../actions/itemActions';
@@ -33,23 +33,47 @@ const Shop = () => {
   const [category, setCategory] = useState('');
   const [searchUrl, setSearchUrl] = useState('');
   const [isCopied, setIsCopied] = useState(false);
+  let url = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}`;
+
+  let searchParams = useMemo(() => new URLSearchParams(window.location.search),[])
+  let allSearchParams = [];
+  if (searchParams.has('search')) {
+    allSearchParams = searchParams.getAll('search');
+    console.log(allSearchParams);
+  let savedTitleList = allSearchParams[0].split(':');
+  let savedTitle = savedTitleList[1];
+  let savedMaxList = allSearchParams[1].split('<');
+  let savedMax = savedMaxList[1];
+
+  let savedMinList = allSearchParams[2].split('>')
+  console.log(savedMinList)
+  let savedMin = savedMinList[1];
+  console.log(savedMin);
+
+  let savedCategoryList = allSearchParams[3].split(':')
+  let savedCategory = savedCategoryList[1];
+  url = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${savedTitle}&search=price<${savedMax}&search=price>${savedMin}&search=category:${savedCategory}`;
+  }
+  //const savedPage = searchParams.get('page');
+  //const savedPageSize = searchParams.get('pageSize');
+  
+
 
   useEffect(() => {
-    const url = `${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`;
+    console.log(url);
     try {
       const response = fetch(url)
         .then((response) => response.json())
         .then((response) => dispatch(saveAllItems(response)));
       if (response.status !== 200) {
-        throw Error(response.message);
+        throw Error(response.error);
       }
     } catch (error) {
       console.log(error.message);
       setError(error.message);
     }
   }, [page, pageSize, dispatch]);
-   
-  
+
   function callback(key) {
   console.log(key);
   }
@@ -57,7 +81,7 @@ const Shop = () => {
   const onClick = async (event) => {
     event.preventDefault();
     setError(null);
-    setSearchUrl(`http://localhost:3000/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`);
+    setSearchUrl(`http://localhost:3000/?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`);
     try {
       const response = await fetch(`${backendUrl}/item?page=${page-1}&pageSize=${pageSize}&search=title:${name}&search=price<${max}&search=price>${min}&search=category:${category}`)
         if (response.status !== 200) {
